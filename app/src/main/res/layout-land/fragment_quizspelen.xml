@@ -11,19 +11,18 @@
         <TextView
             android:id="@+id/vraagText"
             android:layout_width="0dp"
-            android:layout_height="120sp"
+            android:layout_height="76sp"
             android:text="@{quizViewModel.vraag}"
             android:textSize="30dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/keuze1Button"
             android:layout_width="0dp"
-            android:layout_height="150dp"
-            android:layout_marginTop="32dp"
+            android:layout_height="80dp"
             android:layout_marginEnd="16dp"
             android:backgroundTint="#070707"
             android:text="@{quizViewModel.keuze1}"
@@ -37,9 +36,8 @@
         <Button
             android:id="@+id/keuze2Button"
             android:layout_width="0dp"
-            android:layout_height="150dp"
+            android:layout_height="80dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="32dp"
             android:backgroundTint="#070707"
             android:text="@{quizViewModel.keuze2}"
             android:textColor="#FFEB3B"
@@ -52,7 +50,7 @@
         <Button
             android:id="@+id/keuze3Button"
             android:layout_width="0dp"
-            android:layout_height="150dp"
+            android:layout_height="80dp"
             android:layout_marginEnd="16dp"
             android:backgroundTint="#070707"
             android:text="@{quizViewModel.keuze3}"
@@ -67,7 +65,7 @@
         <Button
             android:id="@+id/keuze4Button"
             android:layout_width="0dp"
-            android:layout_height="150dp"
+            android:layout_height="80dp"
             android:layout_marginStart="16dp"
             android:backgroundTint="#070707"
             android:text="@{quizViewModel.keuze4}"
