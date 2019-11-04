@@ -9,6 +9,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.example.quizzit.databinding.FragmentHomeBinding
 import android.widget.ImageView
+import androidx.appcompat.app.AppCompatActivity
 
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
@@ -31,6 +32,7 @@ class HomeFragment : Fragment() {
                false
            )
            binding.quizzitImage.setImageResource(R.drawable.quizzit)
+           (activity as AppCompatActivity).supportActionBar?.title = "Quizzit"
            setHasOptionsMenu(true)
            return binding.root
        }

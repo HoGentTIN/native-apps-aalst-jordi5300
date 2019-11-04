@@ -6,10 +6,17 @@ import androidx.lifecycle.ViewModel
 class QuizViewModel : ViewModel() {
 //private val quizRepository : QuizRepository
 
-    private var positieVraag = 0
-    private var score = 0
-    private var lengteQuiz = 0
     private var quiz = Quiz("", "", mutableListOf())
+
+    val score: MutableLiveData<Int> by lazy {
+        MutableLiveData<Int>()
+    }
+    val positieVraag: MutableLiveData<Int> by lazy {
+        MutableLiveData<Int>()
+    }
+    val lengteQuiz: MutableLiveData<Int> by lazy {
+        MutableLiveData<Int>()
+    }
 
     val vraag: MutableLiveData<String> by lazy {
         MutableLiveData<String>()
@@ -77,16 +84,16 @@ class QuizViewModel : ViewModel() {
     )
 
     init {
-        positieVraag = 0
-        score = 0
+        positieVraag.value = 0
+        score.value = 0
         quiz = quizzes.shuffled().take(1).get(0)
-        lengteQuiz = quiz.questions.size + 1
+        lengteQuiz.value = quiz.questions.size + 1
         randomizeQuestionsAndSetQuestion()
     }
 
     public fun randomizeQuestionsAndSetQuestion() {
-        antwoord.value = quiz.questions[positieVraag].antwoord
-        var huidigeVraag = quiz.questions[positieVraag]
+        antwoord.value = quiz.questions[positieVraag.value!!.toInt()].antwoord
+        var huidigeVraag = quiz.questions[positieVraag.value!!.toInt()]
         val keuzes = mutableListOf(
             huidigeVraag.keuze1,
             huidigeVraag.keuze2,
@@ -98,16 +105,16 @@ class QuizViewModel : ViewModel() {
         keuze2.value = keuzes.elementAt(1)
         keuze3.value = keuzes.elementAt(2)
         keuze4.value = keuzes.elementAt(3)
-        vraag.value = quiz.questions[positieVraag].vraag
+        vraag.value = quiz.questions[positieVraag.value!!.toInt()].vraag
     }
 
 
     public fun volgendeVraag(text: String) {
         if(text.equals(this.antwoord.value)){
-            this.score++
+            this.score.value?.plus(1)
         }
-        positieVraag++;
-        if (positieVraag >= lengteQuiz) {
+        positieVraag.value = positieVraag.value?.inc()
+        if (positieVraag.value!!.toInt() >= lengteQuiz.value!!.toInt()) {
             // ga naar highscores
         } else {
             randomizeQuestionsAndSetQuestion()
