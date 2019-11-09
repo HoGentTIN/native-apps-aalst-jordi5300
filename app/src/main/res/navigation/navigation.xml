@@ -17,5 +17,21 @@
         android:id="@+id/quizFragment"
         android:name="com.example.quizzit.quiz.QuizFragment"
         android:label="fragment_quizspelen"
-        tools:layout="@layout/fragment_quizspelen" />
+        tools:layout="@layout/fragment_quizspelen" >
+        <action
+            android:id="@+id/action_quizFragment_to_scoreFragment"
+            app:destination="@id/scoreFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/scoreFragment"
+        android:name="com.example.quizzit.score.ScoreFragment"
+        android:label="ScoreFragment" >
+        <action
+            android:id="@+id/action_scoreFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <argument
+            android:name="score"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
 </navigation>

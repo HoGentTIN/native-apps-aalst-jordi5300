@@ -2,11 +2,15 @@ package com.example.quizzit.quiz
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.quizzit.domain.Question
+import com.example.quizzit.domain.Quiz
 
 class QuizViewModel : ViewModel() {
 //private val quizRepository : QuizRepository
 
     private var quiz = Quiz("", "", mutableListOf())
+
+    var einde = false
 
     val score: MutableLiveData<Int> by lazy {
         MutableLiveData<Int>()
@@ -111,11 +115,11 @@ class QuizViewModel : ViewModel() {
 
     public fun volgendeVraag(text: String) {
         if(text.equals(this.antwoord.value)){
-            this.score.value?.plus(1)
+            this.score.value = score.value?.inc()
         }
         positieVraag.value = positieVraag.value?.inc()
-        if (positieVraag.value!!.toInt() >= lengteQuiz.value!!.toInt()) {
-            // ga naar highscores
+        if (positieVraag.value!!.toInt().plus(1) >= lengteQuiz.value!!.toInt()) {
+           einde = true
         } else {
             randomizeQuestionsAndSetQuestion()
         }

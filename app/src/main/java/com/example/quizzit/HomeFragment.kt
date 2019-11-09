@@ -27,10 +27,6 @@ class HomeFragment : Fragment() {
            binding.playButton.setOnClickListener { view ->
                view.findNavController().navigate(R.id.action_homeFragment_to_quizFragment)
            }
-           val rootView = inflater.inflate(
-               R.layout.fragment_quizspelen, container,
-               false
-           )
            binding.quizzitImage.setImageResource(R.drawable.quizzit)
            (activity as AppCompatActivity).supportActionBar?.title = "Quizzit"
            setHasOptionsMenu(true)
