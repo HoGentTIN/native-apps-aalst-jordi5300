@@ -15,33 +15,37 @@ import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.example.quizzit.R
 import com.example.quizzit.R.layout.fragment_quizspelen
+import com.example.quizzit.database.QuizDao
+import com.example.quizzit.database.QuizDatabase
 import com.example.quizzit.databinding.FragmentQuizspelenBinding
+import com.example.quizzit.domain.QuizRepository
 
 class QuizFragment : Fragment(),View.OnClickListener {
 
     private lateinit var quizViewModel: QuizViewModel;
-
+    private lateinit var binding: FragmentQuizspelenBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding: FragmentQuizspelenBinding = DataBindingUtil.inflate(
+        binding = DataBindingUtil.inflate(
             inflater, fragment_quizspelen, container, false
         )
-        quizViewModel = ViewModelProviders.of(this).get(QuizViewModel::class.java);
+        val quizDao = QuizDatabase.getInstance(requireContext()).quizDao
+        val viewModelFactory = QuizViewModelFactory(QuizRepository(quizDao))
+        quizViewModel = ViewModelProviders.of(this, viewModelFactory).get(QuizViewModel::class.java)
         binding.quizViewModel = quizViewModel
-        val view = getView();
         binding.keuze1Button.setOnClickListener(this)
         binding.keuze2Button.setOnClickListener(this)
         binding.keuze3Button.setOnClickListener(this)
         binding.keuze4Button.setOnClickListener(this)
-        (activity as AppCompatActivity).supportActionBar?.title =
-            "vraag " + quizViewModel.positieVraag.value!!.plus(1) + " van " + quizViewModel.lengteQuiz.value!!.minus(
-                1
-            )
-        binding.setLifecycleOwner(this)
+        binding.lifecycleOwner = this
+        //(activity as AppCompatActivity).supportActionBar?.title =
+        //    "vraag " + quizViewModel.positieVraag.value!!.plus(1) + " van " + quizViewModel.lengteQuiz.value!!.minus(
+         //       1
+         //   )
         return binding.root
     }
 
