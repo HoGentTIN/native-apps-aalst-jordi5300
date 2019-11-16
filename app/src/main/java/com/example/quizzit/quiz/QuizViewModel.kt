@@ -3,6 +3,7 @@ package com.example.quizzit.quiz
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.quizzit.domain.Question
 import com.example.quizzit.domain.Quiz
 import com.example.quizzit.domain.QuizRepository
 import kotlinx.coroutines.Dispatchers
@@ -11,7 +12,9 @@ import kotlinx.coroutines.withContext
 
 class QuizViewModel(private val quizRepository: QuizRepository) : ViewModel() {
 
-    private var quiz = Quiz(1, "", "", listOf())
+    private var quiz = Quiz(1, "", "")
+
+    private var questions = listOf<Question>()
 
     var einde = false
 
@@ -49,7 +52,7 @@ class QuizViewModel(private val quizRepository: QuizRepository) : ViewModel() {
         score.value = 0
         viewModelScope.launch {
             resetQuizzes()
-            lengteQuiz.value = quiz.questions.size + 1
+            lengteQuiz.value = questions.size + 1
             randomizeQuestionsAndSetQuestion()
         }
     }
@@ -57,12 +60,13 @@ class QuizViewModel(private val quizRepository: QuizRepository) : ViewModel() {
     suspend fun resetQuizzes() {
         withContext(Dispatchers.Default) {
             quiz = quizRepository.getAllQuizzes().shuffled().first()
+            questions = quizRepository.getAllQuestions(quiz).shuffled()
         }
     }
 
     fun randomizeQuestionsAndSetQuestion() {
-        antwoord.value = quiz.questions[positieVraag.value!!.toInt()].antwoord
-        var huidigeVraag = quiz.questions[positieVraag.value!!.toInt()]
+        antwoord.value = questions[positieVraag.value!!.toInt()].antwoord
+        var huidigeVraag = questions[positieVraag.value!!.toInt()]
         val keuzes = mutableListOf(
             huidigeVraag.keuze1,
             huidigeVraag.keuze2,
@@ -74,7 +78,7 @@ class QuizViewModel(private val quizRepository: QuizRepository) : ViewModel() {
         keuze2.value = keuzes.elementAt(1)
         keuze3.value = keuzes.elementAt(2)
         keuze4.value = keuzes.elementAt(3)
-        vraag.value = quiz.questions[positieVraag.value!!.toInt()].vraag
+        vraag.value = questions[positieVraag.value!!.toInt()].vraag
     }
 
 

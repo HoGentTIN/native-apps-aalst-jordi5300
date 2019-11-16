@@ -34,7 +34,8 @@ class QuizFragment : Fragment(),View.OnClickListener {
             inflater, fragment_quizspelen, container, false
         )
         val quizDao = QuizDatabase.getInstance(requireContext()).quizDao
-        val viewModelFactory = QuizViewModelFactory(QuizRepository(quizDao))
+        val questionDao = QuizDatabase.getInstance(requireContext()).questionDao
+        val viewModelFactory = QuizViewModelFactory(QuizRepository(quizDao,questionDao))
         quizViewModel = ViewModelProviders.of(this, viewModelFactory).get(QuizViewModel::class.java)
         binding.quizViewModel = quizViewModel
         binding.keuze1Button.setOnClickListener(this)
@@ -44,7 +45,7 @@ class QuizFragment : Fragment(),View.OnClickListener {
         binding.lifecycleOwner = this
         //(activity as AppCompatActivity).supportActionBar?.title =
         //    "vraag " + quizViewModel.positieVraag.value!!.plus(1) + " van " + quizViewModel.lengteQuiz.value!!.minus(
-         //       1
+        //        1
          //   )
         return binding.root
     }

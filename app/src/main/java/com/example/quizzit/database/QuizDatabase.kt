@@ -12,11 +12,11 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-@Database(entities = arrayOf(Quiz::class,Question::class), version = 2, exportSchema = false)
+@Database(entities = [Quiz::class,Question::class], version = 3, exportSchema = false)
 @TypeConverters(QuestionConverter::class)
 abstract class QuizDatabase : RoomDatabase() {
     abstract val quizDao: QuizDao
-    //abstract val questionDao : QuestionDao
+    abstract val questionDao : QuestionDao
 
     companion object {
         @Volatile
@@ -44,58 +44,59 @@ abstract class QuizDatabase : RoomDatabase() {
 
     private fun putQuizzes() {
         val quizList = listOf(
+            Quiz(1, "quiz1", "algemeen")
+            ,
             Quiz(
-                1,
-                "quiz1",
-                "algemeen",
-                listOf(
-                    Question(1,
-                        vraag = "Wanneer werd John F. Kennedy vermoord?",
-                        keuze1 = "1961",
-                        keuze2 = "1965",
-                        keuze3 = "1967",
-                        antwoord = "1963"
-                    ),
-                    Question(2,
-                        vraag = "Welke diameter hadden de diskettes die in 1970 op de markt kwamen?",
-                        keuze1 = "12 inch",
-                        keuze2 = "3.25 inch",
-                        keuze3 = "45 inch",
-                        antwoord = "8 inch"
-                    ),
-                    Question(3,
-                        vraag = "Waar ligt Narvik?",
-                        keuze1 = "Denemarken",
-                        keuze2 = "Finland",
-                        keuze3 = "Zweden",
-                        antwoord = "Noorwegen"
-                    )
-                )
-            ),
-            Quiz(
-                2,"quiz1", "algemeen", listOf(
-                    Question(4,
-                        vraag = "Welke diameter hadden de diskettes die in 1970 op de markt kwamen?",
-                        keuze1 = "12 inch",
-                        keuze2 = "3.25 inch",
-                        keuze3 = "45 inch",
-                        antwoord = "8 inch"
-                    ),
-                    Question(5,
-                        vraag = "Waar ligt Narvik?",
-                        keuze1 = "Denemarken",
-                        keuze2 = "Finland",
-                        keuze3 = "Zweden",
-                        antwoord = "Noorwegen"
-                    )
+                2,"quiz1", "algemeen")
+        )
+
+        val questionList = listOf(
+                Question(1,1,
+                    vraag = "Wanneer werd John F. Kennedy vermoord?",
+                    keuze1 = "1961",
+                    keuze2 = "1965",
+                    keuze3 = "1967",
+                    antwoord = "1963"
+                ),
+                Question(2,1,
+                    vraag = "Welke diameter hadden de diskettes die in 1970 op de markt kwamen?",
+                    keuze1 = "12 inch",
+                    keuze2 = "3.25 inch",
+                    keuze3 = "45 inch",
+                    antwoord = "8 inch"
+                ),
+                Question(3,1,
+                    vraag = "Waar ligt Narvik?",
+                    keuze1 = "Denemarken",
+                    keuze2 = "Finland",
+                    keuze3 = "Zweden",
+                    antwoord = "Noorwegen"
+                ),
+                Question(4,2,
+                    vraag = "Welke diameter hadden de diskettes die in 1970 op de markt kwamen?",
+                    keuze1 = "12 inch",
+                    keuze2 = "3.25 inch",
+                    keuze3 = "45 inch",
+                    antwoord = "8 inch"
+                ),
+                Question(5,2,
+                    vraag = "Waar ligt Narvik?",
+                    keuze1 = "Denemarken",
+                    keuze2 = "Finland",
+                    keuze3 = "Zweden",
+                    antwoord = "Noorwegen"
                 )
             )
-        )
+
+
+
         GlobalScope.launch {
             withContext(Dispatchers.IO) {
                 quizList.map { it }
                     .map { quizDao.insert(it)}
             }
+            questionList.map { it }
+                .map { questionDao.insert(it)}
+        }
         }
     }
-}
