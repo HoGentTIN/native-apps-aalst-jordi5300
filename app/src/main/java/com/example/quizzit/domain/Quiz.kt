@@ -1,13 +1,15 @@
 package com.example.quizzit.domain
 
 import androidx.room.*
-import com.example.quizzit.database.QuestionConverter
-import com.example.quizzit.database.QuizConverter
+import com.squareup.moshi.Json
 
 @Entity(tableName = "quiz_table")
 data class Quiz(
-    @PrimaryKey(autoGenerate = true)
-    var id: Long = 0L,
+
+    @Json(name = "naam")
     val naam: String,
-    val categorie: String)
+    @Json(name = "categorie")
+    val categorie: String,
+    @PrimaryKey(autoGenerate = true)
+    var id: Long = 0L)
 

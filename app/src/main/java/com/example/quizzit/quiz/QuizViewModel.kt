@@ -12,7 +12,7 @@ import kotlinx.coroutines.withContext
 
 class QuizViewModel(private val quizRepository: QuizRepository) : ViewModel() {
 
-    private var quiz = Quiz(1, "", "")
+    private var quiz = Quiz("", "",1)
 
     private var questions = listOf<Question>()
 

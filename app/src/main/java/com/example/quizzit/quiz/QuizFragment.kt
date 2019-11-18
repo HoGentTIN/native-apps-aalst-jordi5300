@@ -1,5 +1,7 @@
 package com.example.quizzit.quiz
 
+import android.content.Context
+import android.net.ConnectivityManager
 import androidx.navigation.findNavController
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -19,6 +21,7 @@ import com.example.quizzit.database.QuizDao
 import com.example.quizzit.database.QuizDatabase
 import com.example.quizzit.databinding.FragmentQuizspelenBinding
 import com.example.quizzit.domain.QuizRepository
+import com.example.quizzit.network.QuizApi
 
 class QuizFragment : Fragment(),View.OnClickListener {
 
@@ -33,9 +36,13 @@ class QuizFragment : Fragment(),View.OnClickListener {
         binding = DataBindingUtil.inflate(
             inflater, fragment_quizspelen, container, false
         )
+
+        val quizApiService = QuizApi.retrofitService
         val quizDao = QuizDatabase.getInstance(requireContext()).quizDao
         val questionDao = QuizDatabase.getInstance(requireContext()).questionDao
-        val viewModelFactory = QuizViewModelFactory(QuizRepository(quizDao,questionDao))
+        val connectivityManager = requireContext().getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+
+        val viewModelFactory = QuizViewModelFactory(QuizRepository(quizDao,questionDao,quizApiService,connectivityManager))
         quizViewModel = ViewModelProviders.of(this, viewModelFactory).get(QuizViewModel::class.java)
         binding.quizViewModel = quizViewModel
         binding.keuze1Button.setOnClickListener(this)
