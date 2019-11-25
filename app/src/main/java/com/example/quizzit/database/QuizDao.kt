@@ -15,6 +15,4 @@ interface QuizDao {
     @Query("SELECT * FROM quiz_table")
     fun getQuizzes(): List<Quiz>
 
-    @Query("SELECT * FROM question_table WHERE quizID=:quizId")
-    fun getQuestionsFromQuiz(quizId: Long): List<Question>
 }

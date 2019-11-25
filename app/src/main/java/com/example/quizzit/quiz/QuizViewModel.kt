@@ -1,8 +1,6 @@
 package com.example.quizzit.quiz
 
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.example.quizzit.domain.Question
 import com.example.quizzit.domain.Quiz
 import com.example.quizzit.domain.QuizRepository
@@ -12,7 +10,7 @@ import kotlinx.coroutines.withContext
 
 class QuizViewModel(private val quizRepository: QuizRepository) : ViewModel() {
 
-    private var quiz = Quiz("", "",1)
+    private var quiz = Quiz(1,"", "")
 
     private var questions = listOf<Question>()
 
@@ -22,6 +20,9 @@ class QuizViewModel(private val quizRepository: QuizRepository) : ViewModel() {
         MutableLiveData<Int>()
     }
     val positieVraag: MutableLiveData<Int> by lazy {
+        MutableLiveData<Int>()
+    }
+    val positieVraagTitel: MutableLiveData<Int> by lazy {
         MutableLiveData<Int>()
     }
     val lengteQuiz: MutableLiveData<Int> by lazy {
@@ -49,10 +50,11 @@ class QuizViewModel(private val quizRepository: QuizRepository) : ViewModel() {
 
     init {
         positieVraag.value = 0
+        positieVraagTitel.value = 0
         score.value = 0
+        lengteQuiz.value = 0
         viewModelScope.launch {
             resetQuizzes()
-            lengteQuiz.value = questions.size + 1
             randomizeQuestionsAndSetQuestion()
         }
     }
@@ -79,6 +81,7 @@ class QuizViewModel(private val quizRepository: QuizRepository) : ViewModel() {
         keuze3.value = keuzes.elementAt(2)
         keuze4.value = keuzes.elementAt(3)
         vraag.value = questions[positieVraag.value!!.toInt()].vraag
+        lengteQuiz.value = questions.size.plus(1)
     }
 
 
@@ -90,6 +93,7 @@ class QuizViewModel(private val quizRepository: QuizRepository) : ViewModel() {
         if (positieVraag.value!!.toInt().plus(1) >= lengteQuiz.value!!.toInt()) {
             einde = true
         } else {
+            positieVraagTitel.value = positieVraag.value?.plus(1)
             randomizeQuestionsAndSetQuestion()
         }
     }

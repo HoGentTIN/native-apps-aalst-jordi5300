@@ -31,7 +31,7 @@ class QuizRepository(
             return questions
         }
         else{
-            return quizDao.getQuestionsFromQuiz(quiz.id)
+            return questionDao.getQuestionsFromQuiz(quiz.id)
         }
     }
 

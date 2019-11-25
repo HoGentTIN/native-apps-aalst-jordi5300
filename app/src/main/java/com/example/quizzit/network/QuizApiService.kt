@@ -6,7 +6,6 @@ import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterF
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.OkHttpClient
-import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
@@ -76,7 +75,7 @@ interface QuizApiService {
     suspend fun getQuizzes(): List<Quiz>
 
     @GET("api/Quiz/{id}/Meerkeuzevragen")
-    suspend fun getQuestions(@Path("id") id: Long): List<Question>
+    suspend fun getQuestions(@Path("id") id: Int): List<Question>
 }
 
 object QuizApi {

@@ -18,17 +18,24 @@ import com.squareup.moshi.Json
     )]
 )
 data class Question(
+
+    @PrimaryKey(autoGenerate = true)
+    var id: Int = 0,
+
     @Json(name = "questionId")
-    val quizID: Long = 0L,
+    val quizID: Int = 0,
+
     @Json(name = "vraag")
     val vraag: String,
     @Json(name = "keuze1")
+
     val keuze1: String,
     @Json(name = "keuze2")
+
     val keuze2: String,
     @Json(name = "keuze3")
+
     val keuze3: String,
+
     @Json(name = "antwoord")
-    val antwoord: String,
-    @PrimaryKey(autoGenerate = true)
-    var id: Long = 0L)
+    val antwoord: String)

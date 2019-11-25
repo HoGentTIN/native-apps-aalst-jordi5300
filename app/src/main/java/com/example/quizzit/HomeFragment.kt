@@ -24,10 +24,10 @@ class HomeFragment : Fragment() {
                container,
                false
            )
-           binding.playButton.setOnClickListener { view ->
+           binding.btnPlay.setOnClickListener { view ->
                view.findNavController().navigate(R.id.action_homeFragment_to_quizFragment)
            }
-           binding.quizzitImage.setImageResource(R.drawable.quizzit)
+           binding.imgLogo.setImageResource(R.drawable.quizzit)
            (activity as AppCompatActivity).supportActionBar?.title = "Quizzit"
            setHasOptionsMenu(true)
            return binding.root

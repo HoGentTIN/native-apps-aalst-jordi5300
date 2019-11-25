@@ -9,7 +9,7 @@
         tools:context=".QuizSpelenFragment">
 
         <TextView
-            android:id="@+id/vraagText"
+            android:id="@+id/txt_vraag"
             android:layout_width="0dp"
             android:layout_height="120sp"
             android:text="@{quizViewModel.vraag}"
@@ -20,7 +20,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/keuze1Button"
+            android:id="@+id/btn_keuze1"
             android:layout_width="0dp"
             android:layout_height="150dp"
             android:layout_marginTop="32dp"
@@ -29,13 +29,13 @@
             android:text="@{quizViewModel.keuze1}"
             android:textColor="@color/yellowQuizzit"
             android:textSize="20sp"
-            app:layout_constraintEnd_toStartOf="@+id/keuze2Button"
+            app:layout_constraintEnd_toStartOf="@+id/btn_keuze2"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/vraagText" />
+            app:layout_constraintTop_toBottomOf="@+id/txt_vraag" />
 
         <Button
-            android:id="@+id/keuze2Button"
+            android:id="@+id/btn_keuze2"
             android:layout_width="0dp"
             android:layout_height="150dp"
             android:layout_marginStart="16dp"
@@ -46,11 +46,11 @@
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/keuze1Button"
-            app:layout_constraintTop_toBottomOf="@+id/vraagText" />
+            app:layout_constraintStart_toEndOf="@+id/btn_keuze1"
+            app:layout_constraintTop_toBottomOf="@+id/txt_vraag" />
 
         <Button
-            android:id="@+id/keuze3Button"
+            android:id="@+id/btn_keuze3"
             android:layout_width="0dp"
             android:layout_height="150dp"
             android:layout_marginEnd="16dp"
@@ -59,13 +59,13 @@
             android:textColor="@color/yellowQuizzit"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/keuze4Button"
+            app:layout_constraintEnd_toStartOf="@+id/btn_keuze4"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/keuze1Button" />
+            app:layout_constraintTop_toBottomOf="@+id/btn_keuze1" />
 
         <Button
-            android:id="@+id/keuze4Button"
+            android:id="@+id/btn_keuze4"
             android:layout_width="0dp"
             android:layout_height="150dp"
             android:layout_marginStart="16dp"
@@ -76,8 +76,18 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/keuze3Button"
-            app:layout_constraintTop_toBottomOf="@+id/keuze2Button" />
+            app:layout_constraintStart_toEndOf="@+id/btn_keuze3"
+            app:layout_constraintTop_toBottomOf="@+id/btn_keuze2" />
+
+        <Chronometer
+            android:id="@+id/view_timer"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:targetApi="28" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
     <data>
         <variable

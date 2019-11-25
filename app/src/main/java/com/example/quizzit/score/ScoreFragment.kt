@@ -23,12 +23,13 @@ class ScoreFragment : Fragment(){
     ): View? {
         val binding: FragmentScoreBinding = DataBindingUtil.inflate(
             inflater, fragment_score, container, false)
-        scoreViewModel = ViewModelProviders.of(this).get(ScoreViewModel::class.java);
+        scoreViewModel = ViewModelProviders.of(this).get(ScoreViewModel::class.java)
         binding.scoreViewModel = scoreViewModel
         (activity as AppCompatActivity).supportActionBar?.title = "Scores"
         binding.setLifecycleOwner(this)
         val score = ScoreFragmentArgs.fromBundle(arguments!!).score
-        binding.resultaatText.setText("Uw score op de quiz is: " + score)
+        val aantal = ScoreFragmentArgs.fromBundle(arguments!!).aantalVragen
+        binding.txtScore.setText("Uw score op de quiz is: " + score + " op: " + aantal)
         return binding.root
         }
 }

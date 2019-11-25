@@ -9,7 +9,7 @@
 
 
     <Button
-        android:id="@+id/playButton"
+        android:id="@+id/btn_play"
         android:layout_width="0dp"
         android:layout_height="75dp"
         android:layout_marginTop="24dp"
@@ -18,12 +18,12 @@
         android:text="Play"
         android:textColor="@color/yellowQuizzit"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/quizzitImage"
-        app:layout_constraintStart_toStartOf="@+id/quizzitImage"
-        app:layout_constraintTop_toBottomOf="@+id/quizzitImage" />
+        app:layout_constraintEnd_toEndOf="@+id/img_logo"
+        app:layout_constraintStart_toStartOf="@+id/img_logo"
+        app:layout_constraintTop_toBottomOf="@+id/img_logo" />
 
     <ImageView
-        android:id="@+id/quizzitImage"
+        android:id="@+id/img_logo"
         android:layout_width="400dp"
         android:layout_height="300dp"
         android:layout_marginBottom="32dp"
