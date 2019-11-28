@@ -83,7 +83,9 @@ class QuizFragment : Fragment(), View.OnClickListener {
         if (quizViewModel.einde) {
             val action = QuizFragmentDirections.actionQuizFragmentToScoreFragment(
                 quizViewModel.score.value!!.toInt(),
-                quizViewModel.lengteQuiz.value!!.toInt()
+                quizViewModel.lengteQuiz.value!!.toInt(),
+                binding.viewTimer.text.toString(),
+                quizViewModel.quiz.id
             )
             this.findNavController().navigate(action)
         }

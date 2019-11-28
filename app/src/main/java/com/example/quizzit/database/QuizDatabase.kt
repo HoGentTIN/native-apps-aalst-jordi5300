@@ -7,15 +7,21 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.example.quizzit.domain.Question
 import com.example.quizzit.domain.Quiz
+import com.example.quizzit.domain.Score
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-@Database(entities = [Quiz::class,Question::class], version = 1, exportSchema = false)
+@Database(
+    entities = [Quiz::class, Question::class, Score::class],
+    version = 2,
+    exportSchema = false
+)
 abstract class QuizDatabase : RoomDatabase() {
     abstract val quizDao: QuizDao
     abstract val questionDao: QuestionDao
+    abstract val scoreDao: ScoreDao
 
     companion object {
         @Volatile

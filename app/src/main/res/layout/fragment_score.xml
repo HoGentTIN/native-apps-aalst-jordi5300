@@ -16,7 +16,39 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_scoreRes_scores"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_submitscore" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/textView"
+        android:layout_width="0dp"
+        android:layout_height="46dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toStartOf="@+id/btn_submitscore"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_score" />
+
+    <Button
+        android:id="@+id/btn_submitscore"
+        android:layout_width="194dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="5dp"
+        android:backgroundTint="@color/blackQuizzit"
+        android:text="@string/btn_postscore"
+        android:textColor="@color/yellowQuizzit"
+        app:layout_constraintBottom_toBottomOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_score" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
     <data>

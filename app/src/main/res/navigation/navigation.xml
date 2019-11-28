@@ -39,5 +39,12 @@
             android:name="aantalVragen"
             app:argType="integer"
             android:defaultValue="0" />
+        <argument
+            android:name="tijd"
+            app:argType="string" />
+        <argument
+            android:name="quizId"
+            app:argType="integer"
+            android:defaultValue="0" />
     </fragment>
 </navigation>

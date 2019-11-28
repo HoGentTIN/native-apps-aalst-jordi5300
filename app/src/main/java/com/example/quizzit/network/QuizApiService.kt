@@ -1,7 +1,9 @@
 package com.example.quizzit.network
 
+import androidx.lifecycle.LiveData
 import com.example.quizzit.domain.Question
 import com.example.quizzit.domain.Quiz
+import com.example.quizzit.domain.Score
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -76,6 +78,9 @@ interface QuizApiService {
 
     @GET("api/Quiz/{id}/Meerkeuzevragen")
     suspend fun getQuestions(@Path("id") id: Int): List<Question>
+
+    @GET("api/Quiz/{id}/Scores")
+    suspend fun getScores(@Path("id") id: Int): List<Score>
 }
 
 object QuizApi {

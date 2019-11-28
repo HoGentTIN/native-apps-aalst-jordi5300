@@ -15,7 +15,7 @@
         android:layout_marginTop="24dp"
         android:layout_marginBottom="80dp"
         android:backgroundTint="@color/blackQuizzit"
-        android:text="Play"
+        android:text="@string/btn_play"
         android:textColor="@color/yellowQuizzit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/img_logo"
