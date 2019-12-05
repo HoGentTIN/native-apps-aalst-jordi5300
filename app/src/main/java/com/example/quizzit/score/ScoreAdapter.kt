@@ -73,7 +73,7 @@ class ScoreAdapter :
                 else -> R.drawable.plaats1
             }
             binding.imgScoreplaats.setImageResource(drawable)
-            binding.txtScoreInfo.text = "naam " + item.nicknaam + "punten " + item.punten + "tijd " + item.tijd + "sec"
+            binding.txtScoreInfo.text = String.format("naam: %s%n punten: %d%n tijd: %s%n", item.nicknaam, item.punten, item.tijd)
             binding.executePendingBindings()
         }
 

@@ -13,17 +13,29 @@ class ScoreRepository(
     suspend fun getTopScores(id: Int): List<Score> {
         if (connectedToInternet()) {
             val scores = quizApiService.getScores(id)
-            //saveInLocalDatabase(scores)
+            saveInLocalDatabase(scores)
             return scores
         } else {
-            return scoreDao.getScores()
+            return scoreDao.getScores(id)
         }
     }
+
+    suspend fun postScore(id: Int, nicknaam: String, punten: Int, tijd: String): Boolean {
+        if (connectedToInternet()) {
+            val score = Score(0, id, nicknaam, punten, tijd)
+            quizApiService.postScore(score)
+            return true
+        } else {
+            return false
+        }
+    }
+
     private suspend fun saveInLocalDatabase(scores: List<Score>) {
         scores.forEach {
             scoreDao.insert(it)
         }
     }
+
     private fun connectedToInternet(): Boolean {
         with(connectivityManager) {
             return activeNetworkInfo != null && activeNetworkInfo.isConnected

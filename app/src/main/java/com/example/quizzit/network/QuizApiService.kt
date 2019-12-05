@@ -9,7 +9,9 @@ import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
+import retrofit2.http.Body
 import retrofit2.http.GET
+import retrofit2.http.POST
 import retrofit2.http.Path
 import java.security.SecureRandom
 import java.security.cert.X509Certificate
@@ -80,6 +82,9 @@ interface QuizApiService {
 
     @GET("api/Quiz/{id}/Scores")
     suspend fun getScores(@Path("id") id: Int): List<Score>
+
+    @POST("api/Quiz/Score")
+    suspend fun postScore(@Body score: Score)
 }
 
 object QuizApi {

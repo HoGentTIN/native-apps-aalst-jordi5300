@@ -10,8 +10,8 @@ import com.example.quizzit.domain.Score
 @Dao
 interface ScoreDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(score: Score)
+    suspend fun insert(score: Score)
 
-    @Query("SELECT * FROM score_table")
-    fun getScores(): List<Score>
+    @Query("SELECT * FROM score_table WHERE id=:scoreId")
+    suspend  fun getScores(scoreId: Int): List<Score>
 }

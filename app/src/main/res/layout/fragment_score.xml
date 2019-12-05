@@ -29,7 +29,7 @@
         app:layout_constraintTop_toBottomOf="@+id/btn_submitscore" />
 
     <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/textView"
+        android:id="@+id/txt_nicknaam"
         android:layout_width="0dp"
         android:layout_height="46dp"
         android:text="TextView"
@@ -46,7 +46,7 @@
         android:backgroundTint="@color/blackQuizzit"
         android:text="@string/btn_postscore"
         android:textColor="@color/yellowQuizzit"
-        app:layout_constraintBottom_toBottomOf="@+id/textView"
+        app:layout_constraintBottom_toBottomOf="@+id/txt_nicknaam"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_score" />
 

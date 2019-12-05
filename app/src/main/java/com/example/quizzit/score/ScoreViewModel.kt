@@ -10,6 +10,7 @@ import kotlinx.coroutines.launch
 class ScoreViewModel(private val scoreRepository: ScoreRepository, private val id: Int) :
     ViewModel() {
     val scores = MutableLiveData<List<Score>>()
+    var result = false
 
     init {
         viewModelScope.launch {
@@ -19,5 +20,12 @@ class ScoreViewModel(private val scoreRepository: ScoreRepository, private val i
 
     suspend fun getScores(id: Int) {
         scores.value = scoreRepository.getTopScores(id)
+    }
+
+    fun postScore(id: Int, nicknaam: String, punten: Int, tijd: String): Boolean {
+        viewModelScope.launch {
+            result = scoreRepository.postScore(id, nicknaam, punten, tijd)
+        }
+        return result
     }
 }

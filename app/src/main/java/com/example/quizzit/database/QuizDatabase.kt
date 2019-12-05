@@ -15,7 +15,7 @@ import kotlinx.coroutines.withContext
 
 @Database(
     entities = [Quiz::class, Question::class, Score::class],
-    version = 2,
+    version = 1,
     exportSchema = false
 )
 abstract class QuizDatabase : RoomDatabase() {

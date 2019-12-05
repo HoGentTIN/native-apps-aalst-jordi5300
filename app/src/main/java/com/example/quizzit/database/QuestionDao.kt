@@ -10,9 +10,9 @@ import com.example.quizzit.domain.Question
 interface QuestionDao{
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(question: Question)
+    suspend fun insert(question: Question)
 
     @Query("SELECT * FROM question_table WHERE quizID=:quizId")
-    fun getQuestionsFromQuiz(quizId: Int): List<Question>
+    suspend fun getQuestionsFromQuiz(quizId: Int): List<Question>
 
 }
