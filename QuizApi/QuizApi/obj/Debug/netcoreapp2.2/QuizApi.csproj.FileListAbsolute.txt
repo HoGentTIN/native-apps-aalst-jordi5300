@@ -1,0 +1,48 @@
+C:\Users\jordi\Desktop\QuizApi\QuizApi\QuizApi\obj\Debug\netcoreapp2.2\QuizApi.csproj.CoreCompileInputs.cache
+C:\Users\jordi\Desktop\QuizApi\QuizApi\QuizApi\obj\Debug\netcoreapp2.2\QuizApi.AssemblyInfoInputs.cache
+C:\Users\jordi\Desktop\QuizApi\QuizApi\QuizApi\obj\Debug\netcoreapp2.2\QuizApi.AssemblyInfo.cs
+C:\Users\jordi\Desktop\QuizApi\QuizApi\QuizApi\bin\Debug\netcoreapp2.2\QuizApi.deps.json
+C:\Users\jordi\Desktop\QuizApi\QuizApi\QuizApi\bin\Debug\netcoreapp2.2\QuizApi.runtimeconfig.json
+C:\Users\jordi\Desktop\QuizApi\QuizApi\QuizApi\bin\Debug\netcoreapp2.2\QuizApi.runtimeconfig.dev.json
+C:\Users\jordi\Desktop\QuizApi\QuizApi\QuizApi\bin\Debug\netcoreapp2.2\QuizApi.dll
+C:\Users\jordi\Desktop\QuizApi\QuizApi\QuizApi\obj\Debug\netcoreapp2.2\QuizApi.csprojAssemblyReference.cache
+C:\Users\jordi\Desktop\QuizApi\QuizApi\QuizApi\obj\Debug\netcoreapp2.2\QuizApi.RazorAssemblyInfo.cache
+C:\Users\jordi\Desktop\QuizApi\QuizApi\QuizApi\obj\Debug\netcoreapp2.2\QuizApi.RazorAssemblyInfo.cs
+C:\Users\jordi\Desktop\QuizApi\QuizApi\QuizApi\obj\Debug\netcoreapp2.2\QuizApi.RazorTargetAssemblyInfo.cache
+C:\Users\jordi\Desktop\QuizApi\QuizApi\QuizApi\bin\Debug\netcoreapp2.2\QuizApi.pdb
+C:\Users\jordi\Desktop\QuizApi\QuizApi\QuizApi\obj\Debug\netcoreapp2.2\QuizApi.dll
+C:\Users\jordi\Desktop\QuizApi\QuizApi\QuizApi\obj\Debug\netcoreapp2.2\QuizApi.pdb
+C:\Users\jordi\Desktop\WEB 4 PROJECT GIT\QuizApi\QuizApi\QuizApi\bin\Debug\netcoreapp2.2\QuizApi.deps.json
+C:\Users\jordi\Desktop\WEB 4 PROJECT GIT\QuizApi\QuizApi\QuizApi\bin\Debug\netcoreapp2.2\QuizApi.runtimeconfig.json
+C:\Users\jordi\Desktop\WEB 4 PROJECT GIT\QuizApi\QuizApi\QuizApi\bin\Debug\netcoreapp2.2\QuizApi.runtimeconfig.dev.json
+C:\Users\jordi\Desktop\WEB 4 PROJECT GIT\QuizApi\QuizApi\QuizApi\bin\Debug\netcoreapp2.2\QuizApi.dll
+C:\Users\jordi\Desktop\WEB 4 PROJECT GIT\QuizApi\QuizApi\QuizApi\bin\Debug\netcoreapp2.2\QuizApi.pdb
+C:\Users\jordi\Desktop\WEB 4 PROJECT GIT\QuizApi\QuizApi\QuizApi\obj\Debug\netcoreapp2.2\QuizApi.csprojAssemblyReference.cache
+C:\Users\jordi\Desktop\WEB 4 PROJECT GIT\QuizApi\QuizApi\QuizApi\obj\Debug\netcoreapp2.2\QuizApi.csproj.CoreCompileInputs.cache
+C:\Users\jordi\Desktop\WEB 4 PROJECT GIT\QuizApi\QuizApi\QuizApi\obj\Debug\netcoreapp2.2\QuizApi.RazorAssemblyInfo.cache
+C:\Users\jordi\Desktop\WEB 4 PROJECT GIT\QuizApi\QuizApi\QuizApi\obj\Debug\netcoreapp2.2\QuizApi.RazorAssemblyInfo.cs
+C:\Users\jordi\Desktop\WEB 4 PROJECT GIT\QuizApi\QuizApi\QuizApi\obj\Debug\netcoreapp2.2\QuizApi.AssemblyInfoInputs.cache
+C:\Users\jordi\Desktop\WEB 4 PROJECT GIT\QuizApi\QuizApi\QuizApi\obj\Debug\netcoreapp2.2\QuizApi.AssemblyInfo.cs
+C:\Users\jordi\Desktop\WEB 4 PROJECT GIT\QuizApi\QuizApi\QuizApi\obj\Debug\netcoreapp2.2\QuizApi.RazorTargetAssemblyInfo.cache
+C:\Users\jordi\Desktop\WEB 4 PROJECT GIT\QuizApi\QuizApi\QuizApi\obj\Debug\netcoreapp2.2\QuizApi.dll
+C:\Users\jordi\Desktop\WEB 4 PROJECT GIT\QuizApi\QuizApi\QuizApi\obj\Debug\netcoreapp2.2\QuizApi.pdb
+C:\Users\jordi\Desktop\WEB 4 PROJECT GIT\QuizApi\QuizApi\QuizApi\bin\Debug\netcoreapp2.2\QuizApi.xml
+C:\Users\jordi\Desktop\WEB 4 PROJECT GIT\QuizApi\QuizApi\QuizApi\obj\Debug\netcoreapp2.2\QuizApi.xml
+C:\Users\jordi\Desktop\QuizApi\QuizApi\bin\Debug\netcoreapp2.2\QuizApi.deps.json
+C:\Users\jordi\Desktop\QuizApi\QuizApi\bin\Debug\netcoreapp2.2\QuizApi.runtimeconfig.json
+C:\Users\jordi\Desktop\QuizApi\QuizApi\bin\Debug\netcoreapp2.2\QuizApi.runtimeconfig.dev.json
+C:\Users\jordi\Desktop\QuizApi\QuizApi\bin\Debug\netcoreapp2.2\QuizApi.dll
+C:\Users\jordi\Desktop\QuizApi\QuizApi\bin\Debug\netcoreapp2.2\QuizApi.pdb
+C:\Users\jordi\Desktop\QuizApi\QuizApi\bin\Debug\netcoreapp2.2\QuizApi.xml
+C:\Users\jordi\Desktop\QuizApi\QuizApi\obj\Debug\netcoreapp2.2\QuizApi.csprojAssemblyReference.cache
+C:\Users\jordi\Desktop\QuizApi\QuizApi\obj\Debug\netcoreapp2.2\QuizApi.RazorAssemblyInfo.cache
+C:\Users\jordi\Desktop\QuizApi\QuizApi\obj\Debug\netcoreapp2.2\QuizApi.RazorAssemblyInfo.cs
+C:\Users\jordi\Desktop\QuizApi\QuizApi\obj\Debug\netcoreapp2.2\QuizApi.AssemblyInfoInputs.cache
+C:\Users\jordi\Desktop\QuizApi\QuizApi\obj\Debug\netcoreapp2.2\QuizApi.AssemblyInfo.cs
+C:\Users\jordi\Desktop\QuizApi\QuizApi\obj\Debug\netcoreapp2.2\QuizApi.RazorTargetAssemblyInfo.cache
+C:\Users\jordi\Desktop\QuizApi\QuizApi\obj\Debug\netcoreapp2.2\QuizApi.dll
+C:\Users\jordi\Desktop\QuizApi\QuizApi\obj\Debug\netcoreapp2.2\QuizApi.xml
+C:\Users\jordi\Desktop\QuizApi\QuizApi\obj\Debug\netcoreapp2.2\QuizApi.pdb
+C:\Users\jordi\Desktop\QuizApi\QuizApi\bin\Debug\netcoreapp2.2\appsettings.Development.json
+C:\Users\jordi\Desktop\QuizApi\QuizApi\bin\Debug\netcoreapp2.2\appsettings.json
+C:\Users\jordi\Desktop\QuizApi\QuizApi\bin\Debug\netcoreapp2.2\Properties\launchSettings.json

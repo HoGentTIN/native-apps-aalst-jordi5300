@@ -101,12 +101,12 @@ class QuizFragment : Fragment(), View.OnClickListener {
     }
 
     override fun onPause() {
-        binding.viewTimer.stop()
         super.onPause()
+        binding.viewTimer.stop()
     }
 
     override fun onResume() {
-        binding.viewTimer.start()
         super.onResume()
+        binding.viewTimer.start()
     }
 }

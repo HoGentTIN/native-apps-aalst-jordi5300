@@ -1,6 +1,5 @@
 package com.example.quizzit.network
 
-import androidx.lifecycle.LiveData
 import com.example.quizzit.domain.Question
 import com.example.quizzit.domain.Quiz
 import com.example.quizzit.domain.Score

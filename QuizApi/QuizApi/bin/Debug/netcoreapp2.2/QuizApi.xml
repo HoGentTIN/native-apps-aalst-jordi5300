@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>QuizApi</name>
+    </assembly>
+    <members>
+        <member name="M:QuizApi.Controllers.AccountController.CreateToken(QuizApi.DTOs.LoginDTO)">
+            <summary>
+            Login
+            </summary>
+            <param name="model">the login details</param>
+        </member>
+        <member name="M:QuizApi.Controllers.AccountController.Register(QuizApi.DTOs.RegisterDTO)">
+            <summary>
+            Register a user
+            </summary>
+            <param name="model">the user details</param>
+            <returns></returns>
+        </member>
+        <member name="M:QuizApi.Controllers.AccountController.CheckAvailableUserName(System.String)">
+            <summary>
+            Checks if an email is available as username
+            </summary>
+            <returns>true if the email is not registered yet</returns>
+            <param name="email">Email.</param>/
+        </member>
+        <member name="M:QuizApi.Controllers.AccountController.CheckAvailableNickname(System.String)">
+            <summary>
+            Checks if an username is available 
+            </summary>
+            <returns>true if the username is not registered yet</returns>
+            <param name="email">Email.</param>/
+        </member>
+        <member name="M:QuizApi.Controllers.QuizController.GetQuizzes">
+            GET: api/Quizzes
+            <summary>
+            Get all quizzes ordered by category 
+            </summary>
+            <returns>Array of quiz</returns>
+        </member>
+        <member name="M:QuizApi.Controllers.QuizController.GetQuiz(System.Int32)">
+            <summary>
+            Get the quiz with given id
+            </summary>
+            <param name="id">the id of the quiz</param>
+            <returns>The Quiz with the questions included</returns>
+        </member>
+        <member name="M:QuizApi.Controllers.QuizController.PostScore(QuizApi.DTOs.ScoreDTO)">
+            <summary>
+            Adds a new Score with naam and tijd and punten
+            </summary>
+        </member>
+        <member name="M:QuizApi.Controllers.QuizController.GetScore(System.Int32)">
+            <summary>
+            Get the score of a quiz with given id
+            </summary>
+            <param name="id">the id of the quiz</param>
+            <returns>The 10 best scores of a quiz</returns>
+        </member>
+        <member name="M:QuizApi.Controllers.QuizController.GetMeerkeuzevragen(System.Int32)">
+            <summary>
+            Get the quiz with given id
+            </summary>
+            <param name="id">the id of the quiz</param>
+            <returns>The Quiz with the questions included</returns>
+        </member>
+    </members>
+</doc>
