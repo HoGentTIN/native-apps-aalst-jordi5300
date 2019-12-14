@@ -27,14 +27,14 @@ data class Question(
 
     @Json(name = "vraag")
     val vraag: String,
+
     @Json(name = "keuze1")
-
     val keuze1: String,
+
     @Json(name = "keuze2")
-
     val keuze2: String,
-    @Json(name = "keuze3")
 
+    @Json(name = "keuze3")
     val keuze3: String,
 
     @Json(name = "antwoord")

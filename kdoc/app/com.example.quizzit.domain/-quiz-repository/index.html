@@ -1,0 +1,44 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>QuizRepository - app</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">app</a>&nbsp;/&nbsp;<a href="../index.html">com.example.quizzit.domain</a>&nbsp;/&nbsp;<a href="./index.html">QuizRepository</a><br/>
+<br/>
+<h1>QuizRepository</h1>
+<code><span class="keyword">class </span><span class="identifier">QuizRepository</span></code>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<code><span class="identifier">QuizRepository</span><span class="symbol">(</span><span class="identifier" id="com.example.quizzit.domain.QuizRepository$<init>(com.example.quizzit.database.QuizDao, com.example.quizzit.database.QuestionDao, com.example.quizzit.network.QuizApiService, android.net.ConnectivityManager)/quizDao">quizDao</span><span class="symbol">:</span>&nbsp;<a href="../../com.example.quizzit.database/-quiz-dao/index.html"><span class="identifier">QuizDao</span></a><span class="symbol">, </span><span class="identifier" id="com.example.quizzit.domain.QuizRepository$<init>(com.example.quizzit.database.QuizDao, com.example.quizzit.database.QuestionDao, com.example.quizzit.network.QuizApiService, android.net.ConnectivityManager)/questionDao">questionDao</span><span class="symbol">:</span>&nbsp;<a href="../../com.example.quizzit.database/-question-dao/index.html"><span class="identifier">QuestionDao</span></a><span class="symbol">, </span><span class="identifier" id="com.example.quizzit.domain.QuizRepository$<init>(com.example.quizzit.database.QuizDao, com.example.quizzit.database.QuestionDao, com.example.quizzit.network.QuizApiService, android.net.ConnectivityManager)/quizApiService">quizApiService</span><span class="symbol">:</span>&nbsp;<a href="../../com.example.quizzit.network/-quiz-api-service/index.html"><span class="identifier">QuizApiService</span></a><span class="symbol">, </span><span class="identifier" id="com.example.quizzit.domain.QuizRepository$<init>(com.example.quizzit.database.QuizDao, com.example.quizzit.database.QuestionDao, com.example.quizzit.network.QuizApiService, android.net.ConnectivityManager)/connectivityManager">connectivityManager</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/net/ConnectivityManager.html"><span class="identifier">ConnectivityManager</span></a><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="get-all-questions.html">getAllQuestions</a></h4>
+</td>
+<td>
+<code><span class="keyword">suspend</span> <span class="keyword">fun </span><span class="identifier">getAllQuestions</span><span class="symbol">(</span><span class="identifier" id="com.example.quizzit.domain.QuizRepository$getAllQuestions(com.example.quizzit.domain.Quiz)/quiz">quiz</span><span class="symbol">:</span>&nbsp;<a href="../-quiz/index.html"><span class="identifier">Quiz</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../-question/index.html"><span class="identifier">Question</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-all-quizzes.html">getAllQuizzes</a></h4>
+</td>
+<td>
+<code><span class="keyword">suspend</span> <span class="keyword">fun </span><span class="identifier">getAllQuizzes</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../-quiz/index.html"><span class="identifier">Quiz</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

@@ -4,7 +4,6 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.example.quizzit.domain.Question
 import com.example.quizzit.domain.Quiz
 
 @Dao
@@ -14,5 +13,4 @@ interface QuizDao {
 
     @Query("SELECT * FROM quiz_table")
     suspend fun getQuizzes(): List<Quiz>
-
 }

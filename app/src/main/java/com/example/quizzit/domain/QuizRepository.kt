@@ -28,13 +28,11 @@ class QuizRepository(
         if (connectedToInternet()) {
             val questions = quizApiService.getQuestions(quiz.id)
             saveInLocalDatabase2(questions)
-            return questions
-        }
+            return questions }
         else{
             return questionDao.getQuestionsFromQuiz(quiz.id)
         }
     }
-
 
     private suspend fun saveInLocalDatabase(quizzes: List<Quiz>) {
         quizzes.forEach {

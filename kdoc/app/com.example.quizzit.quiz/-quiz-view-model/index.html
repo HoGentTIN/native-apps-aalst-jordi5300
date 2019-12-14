@@ -1,0 +1,154 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>QuizViewModel - app</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">app</a>&nbsp;/&nbsp;<a href="../index.html">com.example.quizzit.quiz</a>&nbsp;/&nbsp;<a href="./index.html">QuizViewModel</a><br/>
+<br/>
+<h1>QuizViewModel</h1>
+<code><span class="keyword">class </span><span class="identifier">QuizViewModel</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">ViewModel</span></code>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<code><span class="identifier">QuizViewModel</span><span class="symbol">(</span><span class="identifier" id="com.example.quizzit.quiz.QuizViewModel$<init>(com.example.quizzit.domain.QuizRepository)/quizRepository">quizRepository</span><span class="symbol">:</span>&nbsp;<a href="../../com.example.quizzit.domain/-quiz-repository/index.html"><span class="identifier">QuizRepository</span></a><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="antwoord.html">antwoord</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">antwoord</span><span class="symbol">: </span><span class="identifier">MutableLiveData</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="einde.html">einde</a></h4>
+</td>
+<td>
+<code><span class="keyword">var </span><span class="identifier">einde</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="keuze1.html">keuze1</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">keuze1</span><span class="symbol">: </span><span class="identifier">MutableLiveData</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="keuze2.html">keuze2</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">keuze2</span><span class="symbol">: </span><span class="identifier">MutableLiveData</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="keuze3.html">keuze3</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">keuze3</span><span class="symbol">: </span><span class="identifier">MutableLiveData</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="keuze4.html">keuze4</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">keuze4</span><span class="symbol">: </span><span class="identifier">MutableLiveData</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="lengte-quiz.html">lengteQuiz</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">lengteQuiz</span><span class="symbol">: </span><span class="identifier">MutableLiveData</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="m-elapsed-time.html">mElapsedTime</a></h4>
+</td>
+<td>
+<code><span class="keyword">var </span><span class="identifier">mElapsedTime</span><span class="symbol">: </span><span class="identifier">MutableLiveData</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="positie-vraag.html">positieVraag</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">positieVraag</span><span class="symbol">: </span><span class="identifier">MutableLiveData</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="positie-vraag-titel.html">positieVraagTitel</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">positieVraagTitel</span><span class="symbol">: </span><span class="identifier">MutableLiveData</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="quiz.html">quiz</a></h4>
+</td>
+<td>
+<code><span class="keyword">var </span><span class="identifier">quiz</span><span class="symbol">: </span><a href="../../com.example.quizzit.domain/-quiz/index.html"><span class="identifier">Quiz</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="score.html">score</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">score</span><span class="symbol">: </span><span class="identifier">MutableLiveData</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="vraag.html">vraag</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">vraag</span><span class="symbol">: </span><span class="identifier">MutableLiveData</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="on-cleared.html">onCleared</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">onCleared</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="randomize-questions-and-set-question.html">randomizeQuestionsAndSetQuestion</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">randomizeQuestionsAndSetQuestion</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="reset-quizzes.html">resetQuizzes</a></h4>
+</td>
+<td>
+<code><span class="keyword">suspend</span> <span class="keyword">fun </span><span class="identifier">resetQuizzes</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="volgende-vraag.html">volgendeVraag</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">volgendeVraag</span><span class="symbol">(</span><span class="identifier" id="com.example.quizzit.quiz.QuizViewModel$volgendeVraag(kotlin.String)/text">text</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

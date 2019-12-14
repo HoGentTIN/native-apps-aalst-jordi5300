@@ -1,6 +1,7 @@
 package com.example.quizzit.domain
 
-import androidx.room.*
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.squareup.moshi.Json
 
 @Entity(tableName = "quiz_table")

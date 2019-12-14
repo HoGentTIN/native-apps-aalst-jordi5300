@@ -13,7 +13,7 @@
             android:layout_width="0dp"
             android:layout_height="120sp"
             android:text="@{quizViewModel.vraag}"
-            android:textSize="30dp"
+            android:textSize="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -21,14 +21,12 @@
 
         <Button
             android:id="@+id/btn_keuze1"
+            style="@style/QuizQuestionButton"
             android:layout_width="0dp"
             android:layout_height="150dp"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="16dp"
-            android:backgroundTint="@color/blackQuizzit"
             android:text="@{quizViewModel.keuze1}"
-            android:textColor="@color/yellowQuizzit"
-            android:textSize="20sp"
             app:layout_constraintEnd_toStartOf="@+id/btn_keuze2"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -36,14 +34,12 @@
 
         <Button
             android:id="@+id/btn_keuze2"
+            style="@style/QuizQuestionButton"
             android:layout_width="0dp"
             android:layout_height="150dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="32dp"
-            android:backgroundTint="@color/blackQuizzit"
             android:text="@{quizViewModel.keuze2}"
-            android:textColor="@color/yellowQuizzit"
-            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/btn_keuze1"
@@ -51,13 +47,11 @@
 
         <Button
             android:id="@+id/btn_keuze3"
+            style="@style/QuizQuestionButton"
             android:layout_width="0dp"
             android:layout_height="150dp"
             android:layout_marginEnd="16dp"
-            android:backgroundTint="@color/blackQuizzit"
             android:text="@{quizViewModel.keuze3}"
-            android:textColor="@color/yellowQuizzit"
-            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/btn_keuze4"
             app:layout_constraintHorizontal_bias="0.5"
@@ -66,24 +60,23 @@
 
         <Button
             android:id="@+id/btn_keuze4"
+            style="@style/QuizQuestionButton"
             android:layout_width="0dp"
             android:layout_height="150dp"
             android:layout_marginStart="16dp"
-            android:backgroundTint="@color/blackQuizzit"
             android:text="@{quizViewModel.keuze4}"
-            android:textColor="@color/yellowQuizzit"
-            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/btn_keuze3"
             app:layout_constraintTop_toBottomOf="@+id/btn_keuze2" />
 
-        <Chronometer
+        <TextView
             android:id="@+id/view_timer"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:gravity="center"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

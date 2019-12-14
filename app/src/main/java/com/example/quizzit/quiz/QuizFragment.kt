@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProviders
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.example.quizzit.R.layout.fragment_quizspelen
@@ -25,6 +26,7 @@ class QuizFragment : Fragment(), View.OnClickListener {
 
     private lateinit var quizViewModel: QuizViewModel
     private lateinit var binding: FragmentQuizspelenBinding
+    private lateinit var savedInstance: Bundle
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -34,7 +36,7 @@ class QuizFragment : Fragment(), View.OnClickListener {
         binding = DataBindingUtil.inflate(
             inflater, fragment_quizspelen, container, false
         )
-
+        savedInstance = Bundle()
         val quizApiService = QuizApi.retrofitService
         val quizDao = QuizDatabase.getInstance(requireContext()).quizDao
         val questionDao = QuizDatabase.getInstance(requireContext()).questionDao
@@ -57,17 +59,9 @@ class QuizFragment : Fragment(), View.OnClickListener {
         binding.btnKeuze4.setOnClickListener(this)
         binding.lifecycleOwner = this
 
-        if (savedInstanceState == null) {
-            binding.viewTimer.isCountDown = false
-            binding.viewTimer.base = SystemClock.elapsedRealtime() + 2000
-            Thread.sleep(2_000)
-            binding.viewTimer.start()
-        } else {
-            val timer = savedInstanceState.getString("timer")
-            binding.viewTimer.isCountDown = false
-            binding.viewTimer.base = SystemClock.elapsedRealtime() - timer!!.toLong()
-            binding.viewTimer.start()
-        }
+        quizViewModel.mElapsedTime.observe(this, Observer { l ->
+            binding.viewTimer.text = l.toString()
+        })
 
         quizViewModel.lengteQuiz.observe(this, Observer { lengte ->
             (activity as AppCompatActivity).supportActionBar?.title =
@@ -92,21 +86,24 @@ class QuizFragment : Fragment(), View.OnClickListener {
         (activity as AppCompatActivity).supportActionBar?.title =
             "vraag " + this.quizViewModel.positieVraagTitel.value + " van " + quizViewModel.lengteQuiz.value
     }
-
     override fun onSaveInstanceState(savedInstanceState: Bundle) {
-        // Save timer value in saveInstanceState bundle
-        val time = SystemClock.elapsedRealtime() - binding.viewTimer.base
-        savedInstanceState.putString("timer", time.toString())
+        val time = quizViewModel.mElapsedTime
+        savedInstanceState.putString("time", time.value.toString())
         super.onSaveInstanceState(savedInstanceState)
     }
 
-    override fun onPause() {
-        super.onPause()
-        binding.viewTimer.stop()
+    override fun onResume() {
+        val time = savedInstance.getString("time")?.toLong()
+        if (time != null) {
+            quizViewModel.mElapsedTime.postValue(time)
+            }
+        quizViewModel.timer?.run {  }
+        super.onResume()
     }
 
-    override fun onResume() {
-        super.onResume()
-        binding.viewTimer.start()
+    override fun onPause() {
+        onSaveInstanceState(savedInstance)
+        quizViewModel.timer?.cancel()
+        super.onPause()
     }
 }

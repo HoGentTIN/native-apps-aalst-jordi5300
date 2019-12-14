@@ -4,7 +4,6 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import androidx.room.TypeConverters
 import com.example.quizzit.domain.Question
 import com.example.quizzit.domain.Quiz
 import com.example.quizzit.domain.Score
@@ -45,13 +44,11 @@ abstract class QuizDatabase : RoomDatabase() {
                 return instance
             }
         }
-
     }
 
     private fun putQuizzes() {
         val quizList = listOf(
-            Quiz(1, "quiz1", "algemeen")
-            ,
+            Quiz(1, "quiz1", "algemeen"),
             Quiz(2, "quiz2", "algemeen2")
         )
 
@@ -108,4 +105,3 @@ abstract class QuizDatabase : RoomDatabase() {
         }
     }
 }
-

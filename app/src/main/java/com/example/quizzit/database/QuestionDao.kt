@@ -7,12 +7,10 @@ import androidx.room.Query
 import com.example.quizzit.domain.Question
 
 @Dao
-interface QuestionDao{
-
+interface QuestionDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(question: Question)
 
     @Query("SELECT * FROM question_table WHERE quizID=:quizId")
     suspend fun getQuestionsFromQuiz(quizId: Int): List<Question>
-
 }

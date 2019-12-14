@@ -7,17 +7,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
+import com.example.quizzit.R
 import com.example.quizzit.databinding.FragmentScoreBinding
 import com.example.quizzit.R.layout.fragment_score
 import com.example.quizzit.database.QuizDatabase
 import com.example.quizzit.domain.ScoreRepository
 import com.example.quizzit.network.QuizApi
+import com.google.android.material.snackbar.Snackbar
+
 
 class ScoreFragment : Fragment() {
 
@@ -52,7 +54,7 @@ class ScoreFragment : Fragment() {
         val aantal = ScoreFragmentArgs.fromBundle(arguments!!).aantalVragen
         val tijd = ScoreFragmentArgs.fromBundle(arguments!!).tijd
         val quizId = ScoreFragmentArgs.fromBundle(arguments!!).quizId
-        binding.txtScore.setText("Uw score op de quiz is: $score op: $aantal in $tijd minuten")
+        binding.txtScore.setText("Uw score op de quiz is: $score op: $aantal in $tijd seconden")
         binding.txtNicknaam.setText("")
         binding.txtNicknaam.setHint("Nicknaam")
         scoreViewModel.scores.observe(viewLifecycleOwner, Observer {
@@ -66,12 +68,23 @@ class ScoreFragment : Fragment() {
         binding.btnSubmitscore.setOnClickListener { view ->
             val nicknaam = binding.txtNicknaam.text
             if (nicknaam!!.isEmpty()) {
-            //snackbar vul nicknaam in om de score te posten aub
+                val snackbar = Snackbar.make(
+                    view,
+                    "Vul een naam in om de score te posten aub!",
+                    Snackbar.LENGTH_LONG
+                )
+                snackbar.show()
             } else {
-                val result = scoreViewModel.postScore(quizId, nicknaam.toString(), score, tijd)
-                if (!result) {
-                    //snackbar nog maken met er is internet nodig om post online te zetten
-                }
+                scoreViewModel.postScore(quizId, nicknaam.toString(), score, tijd)
+                binding.btnSubmitscore?.isEnabled = false
+                binding.btnSubmitscore?.setTextColor(R.color.blackQuizzit.toInt())
+                binding.btnSubmitscore?.setBackgroundColor(R.color.blackQuizzit.toInt())
+                val snackbar = Snackbar.make(
+                    view,
+                    "Score staat nu online!",
+                    Snackbar.LENGTH_LONG
+                )
+                snackbar.show()
             }
         }
         return binding.root

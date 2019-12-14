@@ -13,4 +13,16 @@
     <style name="MyTitleTextStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
         <item name="android:textColor">@color/blackQuizzit</item>
     </style>
+    <style name="QuizPlayButton">
+        <item name="android:textSize">18sp</item>
+        <item name="android:background">@color/blackQuizzit</item>
+        <item name="android:textColor">@color/yellowQuizzit</item>
+    </style>
+    <style name="QuizQuestionButton">
+        <item name="android:textSize">16sp</item>
+        <item name="android:background">@color/blackQuizzit</item>
+        <item name="android:textColor">@color/yellowQuizzit</item>
+    </style>
+
+
 </resources>

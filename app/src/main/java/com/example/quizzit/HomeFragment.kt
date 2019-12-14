@@ -5,15 +5,10 @@ import android.os.Bundle
 import android.view.*
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
-import androidx.navigation.ui.NavigationUI
 import com.example.quizzit.databinding.FragmentHomeBinding
-import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 
 class HomeFragment : Fragment() {
-    private lateinit var binding: FragmentHomeBinding
-    private lateinit var resultImageView: ImageView
        override fun onCreateView(
            inflater: LayoutInflater, container: ViewGroup?,
            savedInstanceState: Bundle?

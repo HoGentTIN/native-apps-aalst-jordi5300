@@ -1,0 +1,9 @@
+$dokka.format:html
+$dokka.linkExtension:html
+
+com.example.quizzit
+com.example.quizzit.database
+com.example.quizzit.domain
+com.example.quizzit.network
+com.example.quizzit.quiz
+com.example.quizzit.score

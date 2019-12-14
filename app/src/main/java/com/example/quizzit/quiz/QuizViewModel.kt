@@ -7,55 +7,59 @@ import com.example.quizzit.domain.QuizRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import androidx.lifecycle.MutableLiveData
+import android.os.SystemClock
+import java.util.*
 
 class QuizViewModel(private val quizRepository: QuizRepository) : ViewModel() {
 
-    var quiz = Quiz(1,"", "")
+    var quiz = Quiz(1, "", "")
 
     private var questions = listOf<Question>()
 
     var einde = false
 
-    val score: MutableLiveData<Int> by lazy {
-        MutableLiveData<Int>()
-    }
-    val positieVraag: MutableLiveData<Int> by lazy {
-        MutableLiveData<Int>()
-    }
-    val positieVraagTitel: MutableLiveData<Int> by lazy {
-        MutableLiveData<Int>()
-    }
-    val lengteQuiz: MutableLiveData<Int> by lazy {
-        MutableLiveData<Int>()
-    }
+    val score = MutableLiveData<Int>()
 
-    val vraag: MutableLiveData<String> by lazy {
-        MutableLiveData<String>()
-    }
-    val keuze1: MutableLiveData<String> by lazy {
-        MutableLiveData<String>()
-    }
-    val keuze2: MutableLiveData<String> by lazy {
-        MutableLiveData<String>()
-    }
-    val keuze3: MutableLiveData<String> by lazy {
-        MutableLiveData<String>()
-    }
-    val keuze4: MutableLiveData<String> by lazy {
-        MutableLiveData<String>()
-    }
-    val antwoord: MutableLiveData<String> by lazy {
-        MutableLiveData<String>()
-    }
+    val positieVraag = MutableLiveData<Int>()
+
+    val positieVraagTitel = MutableLiveData<Int>()
+
+    val lengteQuiz = MutableLiveData<Int>()
+
+    val vraag = MutableLiveData<String>()
+
+    val keuze1 = MutableLiveData<String>()
+
+    val keuze2 = MutableLiveData<String>()
+
+    val keuze3 = MutableLiveData<String>()
+
+    val keuze4 = MutableLiveData<String>()
+
+    val antwoord = MutableLiveData<String>()
+
+    var mElapsedTime = MutableLiveData<Long>()
+
+    var timer: Timer? = null
 
     init {
+        Thread.sleep(1000)
         positieVraag.value = 0
         positieVraagTitel.value = 0
         score.value = 0
         lengteQuiz.value = 0
+        mElapsedTime.value =0
         viewModelScope.launch {
             resetQuizzes()
             randomizeQuestionsAndSetQuestion()
+            val timer = Timer()
+            val task = object : TimerTask() {
+                override fun run() {
+                    mElapsedTime.postValue(mElapsedTime.value!! +1)
+                }
+            }
+            timer.schedule(task, 0, 1000)
         }
     }
 
@@ -84,7 +88,6 @@ class QuizViewModel(private val quizRepository: QuizRepository) : ViewModel() {
         lengteQuiz.value = questions.size.plus(1)
     }
 
-
     fun volgendeVraag(text: String) {
         if (text.equals(this.antwoord.value)) {
             this.score.value = score.value?.inc()
@@ -96,5 +99,10 @@ class QuizViewModel(private val quizRepository: QuizRepository) : ViewModel() {
             positieVraagTitel.value = positieVraag.value?.plus(1)
             randomizeQuestionsAndSetQuestion()
         }
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        timer?.cancel()
     }
 }

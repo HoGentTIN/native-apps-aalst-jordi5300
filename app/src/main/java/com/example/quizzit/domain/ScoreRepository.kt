@@ -1,7 +1,6 @@
 package com.example.quizzit.domain
 
 import android.net.ConnectivityManager
-import androidx.lifecycle.LiveData
 import com.example.quizzit.database.ScoreDao
 import com.example.quizzit.network.QuizApiService
 
@@ -20,14 +19,9 @@ class ScoreRepository(
         }
     }
 
-    suspend fun postScore(id: Int, nicknaam: String, punten: Int, tijd: String): Boolean {
-        if (connectedToInternet()) {
+    suspend fun postScore(id: Int, nicknaam: String, punten: Int, tijd: String) {
             val score = Score(0, id, nicknaam, punten, tijd)
             quizApiService.postScore(score)
-            return true
-        } else {
-            return false
-        }
     }
 
     private suspend fun saveInLocalDatabase(scores: List<Score>) {
