@@ -1,3 +1,4 @@
-# native-apps-aalst-jordi5300 Quizzit
+# native-apps-aalst-Jordi Van der Poten 
+# Quizzit
 
 
