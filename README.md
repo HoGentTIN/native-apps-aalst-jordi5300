@@ -1,4 +1,3 @@
-# native-apps-aalst-Jordi Van der Poten 
-# Quizzit
+# native-apps-aalst-Jordi-Van-der-Poten-Quizzit
 
 
