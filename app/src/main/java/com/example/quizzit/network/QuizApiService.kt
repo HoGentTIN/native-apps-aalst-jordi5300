@@ -45,4 +45,3 @@ object QuizApi {
         retrofit.create(QuizApiService::class.java)
     }
 }
-

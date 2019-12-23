@@ -14,6 +14,5 @@ data class Quiz(
     val naam: String,
 
     @Json(name = "categorie")
-    val categorie: String)
-
-
+    val categorie: String
+)

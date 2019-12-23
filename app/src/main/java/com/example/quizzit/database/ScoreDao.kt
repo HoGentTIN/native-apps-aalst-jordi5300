@@ -11,4 +11,5 @@ interface ScoreDao {
     suspend fun insert(score: Score)
 
     @Query("SELECT * FROM score_table WHERE id=:scoreId")
-    suspend  fun getScores(scoreId: Int): List<Score> }
+    suspend fun getScores(scoreId: Int): List<Score>
+}

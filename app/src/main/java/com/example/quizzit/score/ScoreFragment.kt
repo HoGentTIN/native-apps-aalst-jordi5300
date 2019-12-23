@@ -13,13 +13,12 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.quizzit.R
-import com.example.quizzit.databinding.FragmentScoreBinding
 import com.example.quizzit.R.layout.fragment_score
 import com.example.quizzit.database.QuizDatabase
+import com.example.quizzit.databinding.FragmentScoreBinding
 import com.example.quizzit.domain.ScoreRepository
 import com.example.quizzit.network.QuizApi
 import com.google.android.material.snackbar.Snackbar
-
 
 class ScoreFragment : Fragment() {
 

@@ -12,7 +12,6 @@ class QuizRepository(
     private val connectivityManager: ConnectivityManager
 ) {
 
-
     suspend fun getAllQuizzes(): List<Quiz> {
         if (connectedToInternet()) {
             val quizzes = quizApiService.getQuizzes()
@@ -23,13 +22,12 @@ class QuizRepository(
         }
     }
 
-
     suspend fun getAllQuestions(quiz: Quiz): List<Question> {
         if (connectedToInternet()) {
             val questions = quizApiService.getQuestions(quiz.id)
             saveInLocalDatabase2(questions)
-            return questions }
-        else{
+            return questions
+        } else {
             return questionDao.getQuestionsFromQuiz(quiz.id)
         }
     }

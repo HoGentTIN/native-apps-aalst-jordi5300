@@ -3,24 +3,21 @@ package com.example.quizzit.quiz
 import android.content.Context
 import android.net.ConnectivityManager
 import android.os.Bundle
-import android.os.SystemClock
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.ViewModelProviders
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import com.example.quizzit.R.layout.fragment_quizspelen
 import com.example.quizzit.database.QuizDatabase
 import com.example.quizzit.databinding.FragmentQuizspelenBinding
 import com.example.quizzit.domain.QuizRepository
 import com.example.quizzit.network.QuizApi
-
 
 class QuizFragment : Fragment(), View.OnClickListener {
 
@@ -86,6 +83,7 @@ class QuizFragment : Fragment(), View.OnClickListener {
         (activity as AppCompatActivity).supportActionBar?.title =
             "vraag " + this.quizViewModel.positieVraagTitel.value + " van " + quizViewModel.lengteQuiz.value
     }
+
     override fun onSaveInstanceState(savedInstanceState: Bundle) {
         val time = quizViewModel.mElapsedTime
         savedInstanceState.putString("time", time.value.toString())
@@ -96,8 +94,8 @@ class QuizFragment : Fragment(), View.OnClickListener {
         val time = savedInstance.getString("time")?.toLong()
         if (time != null) {
             quizViewModel.mElapsedTime.postValue(time)
-            }
-        quizViewModel.timer?.run {  }
+        }
+        quizViewModel.timer?.run { }
         super.onResume()
     }
 

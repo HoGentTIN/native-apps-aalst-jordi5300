@@ -47,7 +47,6 @@ class ScoreAdapter :
         }
     }
 
-
     override fun getItemViewType(position: Int): Int {
         return when (getItem(position)) {
             is DataItem.ScoreItem -> ITEM_VIEW_TYPE_ITEM
@@ -59,7 +58,7 @@ class ScoreAdapter :
 
         fun bind(item: Score) {
             binding.score = item
-            val drawable = when(position) {
+            val drawable = when (position) {
                 0 -> R.drawable.plaats1
                 1 -> R.drawable.plaats2
                 2 -> R.drawable.plaats3
@@ -73,7 +72,7 @@ class ScoreAdapter :
                 else -> R.drawable.plaats1
             }
             binding.imgScoreplaats.setImageResource(drawable)
-            binding.txtScoreInfo.text = String.format("naam: %s%n punten: %d%n tijd: %s%n", item.nicknaam, item.punten, item.tijd)
+            binding.txtScoreInfo.text = String.format("naam: %s%n punten: %d%n tijd: %s seconden%n", item.nicknaam, item.punten, item.tijd)
             binding.executePendingBindings()
         }
 
@@ -98,7 +97,6 @@ class ScoreDiffCallback : DiffUtil.ItemCallback<DataItem>() {
             return oldItem.equals(newItem)
     }
 }
-
 
 sealed class DataItem {
     data class ScoreItem(val score: Score) : DataItem() {

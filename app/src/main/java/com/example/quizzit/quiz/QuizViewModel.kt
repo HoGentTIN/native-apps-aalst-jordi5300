@@ -1,15 +1,16 @@
 package com.example.quizzit.quiz
 
-import androidx.lifecycle.*
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.quizzit.domain.Question
 import com.example.quizzit.domain.Quiz
 import com.example.quizzit.domain.QuizRepository
+import java.util.Timer
+import java.util.TimerTask
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import androidx.lifecycle.MutableLiveData
-import android.os.SystemClock
-import java.util.*
 
 class QuizViewModel(private val quizRepository: QuizRepository) : ViewModel() {
 
@@ -49,14 +50,14 @@ class QuizViewModel(private val quizRepository: QuizRepository) : ViewModel() {
         positieVraagTitel.value = 0
         score.value = 0
         lengteQuiz.value = 0
-        mElapsedTime.value =0
+        mElapsedTime.value = 0
         viewModelScope.launch {
             resetQuizzes()
             randomizeQuestionsAndSetQuestion()
             val timer = Timer()
             val task = object : TimerTask() {
                 override fun run() {
-                    mElapsedTime.postValue(mElapsedTime.value!! +1)
+                    mElapsedTime.postValue(mElapsedTime.value!! + 1)
                 }
             }
             timer.schedule(task, 0, 1000)

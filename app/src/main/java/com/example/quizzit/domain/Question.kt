@@ -38,4 +38,5 @@ data class Question(
     val keuze3: String,
 
     @Json(name = "antwoord")
-    val antwoord: String)
+    val antwoord: String
+)
