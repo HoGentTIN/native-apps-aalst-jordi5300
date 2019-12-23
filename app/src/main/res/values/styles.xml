@@ -7,22 +7,40 @@
         <item name="colorPrimaryDark">@color/yellowQuizzit</item>
         <item name="actionBarStyle">@style/MyActionBar</item>
     </style>
+
     <style name="MyActionBar" parent="@style/Widget.AppCompat.ActionBar.Solid">
         <item name="titleTextStyle">@style/MyTitleTextStyle</item>
     </style>
+
     <style name="MyTitleTextStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
         <item name="android:textColor">@color/blackQuizzit</item>
     </style>
+
     <style name="QuizPlayButton">
         <item name="android:textSize">18sp</item>
         <item name="android:background">@color/blackQuizzit</item>
         <item name="android:textColor">@color/yellowQuizzit</item>
     </style>
+
     <style name="QuizQuestionButton">
         <item name="android:textSize">16sp</item>
         <item name="android:background">@color/blackQuizzit</item>
         <item name="android:textColor">@color/yellowQuizzit</item>
     </style>
 
+    <style name="TopText">
+        <item name="android:textSize">30dp</item>
+        <item name="android:layout_height">120dp</item>
+        <item name="android:layout_width">0dp</item>
+    </style>
 
+    <style name="RecyclerviewQuizTextBox">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:titleMarginStart">16dp</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">20dp</item>
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:layout_marginEnd">16dp</item>
+    </style>
 </resources>

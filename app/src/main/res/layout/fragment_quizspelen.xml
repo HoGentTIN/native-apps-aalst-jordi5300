@@ -12,7 +12,7 @@
             android:id="@+id/txt_vraag"
             android:layout_width="0dp"
             android:layout_height="120sp"
-            android:text="@{quizViewModel.vraag}"
+            android:text="@{quizSpelenViewModel.vraag}"
             android:textSize="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
@@ -26,7 +26,7 @@
             android:layout_height="150dp"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="16dp"
-            android:text="@{quizViewModel.keuze1}"
+            android:text="@{quizSpelenViewModel.keuze1}"
             app:layout_constraintEnd_toStartOf="@+id/btn_keuze2"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -39,7 +39,7 @@
             android:layout_height="150dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="32dp"
-            android:text="@{quizViewModel.keuze2}"
+            android:text="@{quizSpelenViewModel.keuze2}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/btn_keuze1"
@@ -51,7 +51,7 @@
             android:layout_width="0dp"
             android:layout_height="150dp"
             android:layout_marginEnd="16dp"
-            android:text="@{quizViewModel.keuze3}"
+            android:text="@{quizSpelenViewModel.keuze3}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/btn_keuze4"
             app:layout_constraintHorizontal_bias="0.5"
@@ -64,7 +64,7 @@
             android:layout_width="0dp"
             android:layout_height="150dp"
             android:layout_marginStart="16dp"
-            android:text="@{quizViewModel.keuze4}"
+            android:text="@{quizSpelenViewModel.keuze4}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -85,8 +85,8 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
     <data>
         <variable
-            name="quizViewModel"
-            type="com.example.quizzit.quiz.QuizViewModel" />
+            name="quizSpelenViewModel"
+            type="com.example.quizzit.quiz.spelen.QuizSpelenViewModel" />
     </data>
 
 </layout>

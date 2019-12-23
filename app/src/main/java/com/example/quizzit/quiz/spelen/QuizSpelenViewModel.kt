@@ -1,4 +1,4 @@
-package com.example.quizzit.quiz
+package com.example.quizzit.quiz.spelen
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -12,7 +12,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class QuizViewModel(private val quizRepository: QuizRepository) : ViewModel() {
+class QuizSpelenViewModel(private val quizRepository: QuizRepository) : ViewModel() {
 
     var quiz = Quiz(1, "", "")
 
@@ -52,7 +52,7 @@ class QuizViewModel(private val quizRepository: QuizRepository) : ViewModel() {
         lengteQuiz.value = 0
         mElapsedTime.value = 0
         viewModelScope.launch {
-            resetQuizzes()
+            getQuestions()
             randomizeQuestionsAndSetQuestion()
             val timer = Timer()
             val task = object : TimerTask() {
@@ -64,9 +64,8 @@ class QuizViewModel(private val quizRepository: QuizRepository) : ViewModel() {
         }
     }
 
-    suspend fun resetQuizzes() {
+    suspend fun getQuestions() {
         withContext(Dispatchers.Default) {
-            quiz = quizRepository.getAllQuizzes().shuffled().first()
             questions = quizRepository.getAllQuestions(quiz).shuffled()
         }
     }
@@ -86,7 +85,7 @@ class QuizViewModel(private val quizRepository: QuizRepository) : ViewModel() {
         keuze3.value = keuzes.elementAt(2)
         keuze4.value = keuzes.elementAt(3)
         vraag.value = questions[positieVraag.value!!.toInt()].vraag
-        lengteQuiz.value = questions.size.plus(1)
+        lengteQuiz.value = questions.size
     }
 
     fun volgendeVraag(text: String) {
@@ -94,7 +93,7 @@ class QuizViewModel(private val quizRepository: QuizRepository) : ViewModel() {
             this.score.value = score.value?.inc()
         }
         positieVraag.value = positieVraag.value?.inc()
-        if (positieVraag.value!!.toInt().plus(1) >= lengteQuiz.value!!.toInt()) {
+        if (positieVraag.value!!.toInt() >= lengteQuiz.value!!.toInt()) {
             einde = true
         } else {
             positieVraagTitel.value = positieVraag.value?.plus(1)

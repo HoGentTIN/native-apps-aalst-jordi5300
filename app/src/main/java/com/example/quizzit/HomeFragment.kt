@@ -19,7 +19,7 @@ class HomeFragment : Fragment() {
             false
         )
         binding.btnPlay.setOnClickListener { view ->
-            view.findNavController().navigate(R.id.action_homeFragment_to_quizFragment)
+            view.findNavController().navigate(R.id.action_homeFragment_to_quizSelecterenFragment)
         }
         binding.imgLogo.setImageResource(R.drawable.quizzit)
         (activity as AppCompatActivity).supportActionBar?.title = "Quizzit"
