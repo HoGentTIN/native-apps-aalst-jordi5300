@@ -1,4 +1,4 @@
-package com.example.quizzit
+package com.example.quizzit.screens
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
+import com.example.quizzit.R
 import com.example.quizzit.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {

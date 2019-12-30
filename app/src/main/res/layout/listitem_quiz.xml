@@ -10,7 +10,7 @@
             type="com.example.quizzit.domain.Quiz" />
         <variable
             name="clickListener"
-            type="com.example.quizzit.quiz.selecteren.QuizListener" />
+            type="com.example.quizzit.screens.quiz.selecteren.QuizListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

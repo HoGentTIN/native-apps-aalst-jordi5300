@@ -9,8 +9,9 @@ namespace QuizApi.DTOs
   public class ScoreDTO
   {
     public int Id { get; set; }
+    public int quizId { get; set; }
     public string Nicknaam { get; set; }
     public int Punten { get; set; }
-    public int Tijd { get; set; }
+    public string Tijd { get; set; }
   }
 }

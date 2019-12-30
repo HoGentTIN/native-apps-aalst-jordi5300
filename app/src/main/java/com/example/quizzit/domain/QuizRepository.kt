@@ -22,6 +22,10 @@ class QuizRepository(
         }
     }
 
+    suspend fun getAllQuizzesDatabase(): List<Quiz> {
+            return quizDao.getQuizzes()
+    }
+
     suspend fun getAllQuestions(quiz: Quiz): List<Question> {
         if (connectedToInternet()) {
             val questions = quizApiService.getQuestions(quiz.id)
@@ -30,6 +34,10 @@ class QuizRepository(
         } else {
             return questionDao.getQuestionsFromQuiz(quiz.id)
         }
+    }
+
+    suspend fun getAllQuestionsDatabase(quiz: Quiz): List<Question> {
+            return questionDao.getQuestionsFromQuiz(quiz.id)
     }
 
     private suspend fun saveInLocalDatabase(quizzes: List<Quiz>) {

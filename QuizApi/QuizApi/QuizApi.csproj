@@ -11,6 +11,7 @@
     <ApplicationIcon />
     <OutputType>WinExe</OutputType>
     <StartupObject />
+    <NoWin32Manifest>true</NoWin32Manifest>
   </PropertyGroup>
 
   <ItemGroup>

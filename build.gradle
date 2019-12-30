@@ -14,7 +14,7 @@ buildscript {
         version_moshi = "1.8.0"
         version_retrofit = "2.6.0"
         version_retrofit_coroutines_adapter = "0.9.2"
-
+        koin_version = '2.0.1'
         version_junit = "4.12"
         version_mockk = "1.9.3"
         version_testrunner = "1.2.0"

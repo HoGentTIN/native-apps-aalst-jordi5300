@@ -84,7 +84,7 @@
     <data>
         <variable
             name="quizSpelenViewModel"
-            type="com.example.quizzit.quiz.spelen.QuizSpelenViewModel" />
+            type="com.example.quizzit.screens.quiz.spelen.QuizSpelenViewModel" />
     </data>
 
 </layout>

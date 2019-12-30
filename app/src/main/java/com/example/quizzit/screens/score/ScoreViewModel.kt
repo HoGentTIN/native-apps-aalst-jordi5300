@@ -1,5 +1,6 @@
-package com.example.quizzit.score
+package com.example.quizzit.screens.score
 
+import android.net.ConnectivityManager
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -7,8 +8,7 @@ import com.example.quizzit.domain.Score
 import com.example.quizzit.domain.ScoreRepository
 import kotlinx.coroutines.launch
 
-class ScoreViewModel(private val scoreRepository: ScoreRepository, private val id: Int) :
-    ViewModel() {
+class ScoreViewModel(private val scoreRepository: ScoreRepository, private val id: Int = 0) : ViewModel() {
     val scores = MutableLiveData<List<Score>>()
 
     init {
@@ -24,6 +24,12 @@ class ScoreViewModel(private val scoreRepository: ScoreRepository, private val i
     fun postScore(id: Int, nicknaam: String, punten: Int, tijd: String) {
         viewModelScope.launch {
             scoreRepository.postScore(id, nicknaam, punten, tijd)
+        }
+    }
+
+    fun connectedToInternet(con: ConnectivityManager): Boolean {
+        with(con) {
+            return con.activeNetworkInfo != null && con.activeNetworkInfo.isConnected
         }
     }
 }

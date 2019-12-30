@@ -1,7 +1,5 @@
-package com.example.quizzit.quiz.selecteren
+package com.example.quizzit.screens.quiz.selecteren
 
-import android.content.Context
-import android.net.ConnectivityManager
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,43 +8,23 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.quizzit.R
-import com.example.quizzit.database.QuizDatabase
 import com.example.quizzit.databinding.FragmentQuizsSelecterenBinding
-import com.example.quizzit.domain.QuizRepository
-import com.example.quizzit.network.QuizApi
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class QuizSelecterenFragment : Fragment() {
 
-    private lateinit var quizSelecterenViewModel: QuizSelecterenViewModel
+    private val quizSelecterenViewModel: QuizSelecterenViewModel by viewModel()
+    private lateinit var binding: FragmentQuizsSelecterenBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding: FragmentQuizsSelecterenBinding = DataBindingUtil.inflate(
-            inflater, R.layout.fragment_quizs_selecteren, container, false
-        )
-        val quizApiService = QuizApi.retrofitService
-        val quizDao = QuizDatabase.getInstance(requireContext()).quizDao
-        val questionDao = QuizDatabase.getInstance(requireContext()).questionDao
-        val connectivityManager =
-            requireContext().getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-
-        val viewModelFactory =
-            QuizSelecterenViewModelFactory(
-                QuizRepository(
-                    quizDao,
-                    questionDao,
-                    quizApiService,
-                    connectivityManager
-                )
-            )
-        quizSelecterenViewModel = ViewModelProviders.of(this, viewModelFactory).get(QuizSelecterenViewModel::class.java)
+         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_quizs_selecteren, container, false)
         (activity as AppCompatActivity).supportActionBar?.title = "Quiz selecteren"
         binding.setLifecycleOwner(this)
 

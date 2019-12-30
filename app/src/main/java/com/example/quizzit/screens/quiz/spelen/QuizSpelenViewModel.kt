@@ -1,4 +1,4 @@
-package com.example.quizzit.quiz.spelen
+package com.example.quizzit.screens.quiz.spelen
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -66,7 +66,7 @@ class QuizSpelenViewModel(private val quizRepository: QuizRepository) : ViewMode
 
     suspend fun getQuestions() {
         withContext(Dispatchers.Default) {
-            questions = quizRepository.getAllQuestions(quiz).shuffled()
+            questions = quizRepository.getAllQuestionsDatabase(quiz).shuffled()
         }
     }
 

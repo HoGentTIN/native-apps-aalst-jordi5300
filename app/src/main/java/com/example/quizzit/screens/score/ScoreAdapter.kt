@@ -1,4 +1,4 @@
-package com.example.quizzit.score
+package com.example.quizzit.screens.score
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

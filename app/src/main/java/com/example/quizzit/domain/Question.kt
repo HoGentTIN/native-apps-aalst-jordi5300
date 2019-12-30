@@ -20,10 +20,10 @@ import com.squareup.moshi.Json
 data class Question(
 
     @PrimaryKey(autoGenerate = true)
-    var id: Int = 0,
+    var id: Int,
 
     @Json(name = "questionId")
-    val quizID: Int = 0,
+    val quizID: Int,
 
     @Json(name = "vraag")
     val vraag: String,

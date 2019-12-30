@@ -58,9 +58,10 @@ namespace QuizApi.Controllers
         /// Adds a new Score with naam and tijd and punten
         /// </summary>
         [HttpPost("Score")]
+        [AllowAnonymous]
         public ActionResult<Score> PostScore(ScoreDTO score)
         {
-            Score scoreToCreate = new Score() { Id = score.Id, Nicknaam = score.Nicknaam, Punten = score.Punten, Tijd = score.Tijd };
+            Score scoreToCreate = new Score() { QuizId = score.quizId, Nicknaam = score.Nicknaam, Punten = score.Punten, Tijd = score.Tijd };
             _scoreRepository.Add(scoreToCreate);
             _scoreRepository.SaveChanges();
             return CreatedAtAction(nameof(GetScore), new { id = scoreToCreate.Id }, scoreToCreate);

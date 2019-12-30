@@ -1,4 +1,4 @@
-package com.example.quizzit.quiz.selecteren
+package com.example.quizzit.screens.quiz.selecteren
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -17,9 +17,6 @@ class QuizSelecterenViewModel(private val quizRepository: QuizRepository) : View
     }
 
     suspend fun getQuizzes() {
-        quizzes.value = quizRepository.getAllQuizzes()
-    }
-
-    fun onQuizClicked(id: Int) {
+        quizzes.value = quizRepository.getAllQuizzesDatabase()
     }
 }

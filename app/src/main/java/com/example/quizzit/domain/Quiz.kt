@@ -8,7 +8,7 @@ import com.squareup.moshi.Json
 data class Quiz(
 
     @PrimaryKey(autoGenerate = false)
-    var id: Int = 0,
+    var id: Int,
 
     @Json(name = "naam")
     val naam: String,

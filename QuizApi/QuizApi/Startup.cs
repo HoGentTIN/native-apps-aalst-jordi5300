@@ -108,7 +108,7 @@ namespace QuizApi
                 app.UseHsts();
             }
             app.UseHttpsRedirection();
-      app.UseAuthentication();
+      //app.UseAuthentication();
       app.UseMvc();
             app.UseSwaggerUi3();
             app.UseSwagger();

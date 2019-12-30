@@ -31,6 +31,6 @@
     <data>
         <variable
             name="scoreViewModel"
-            type="com.example.quizzit.score.ScoreViewModel" />
+            type="com.example.quizzit.screens.score.ScoreViewModel" />
     </data>
 </layout>

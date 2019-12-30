@@ -12,11 +12,11 @@ namespace QuizApi.Models
     public int QuizId { get; set; }
     public string Nicknaam { get; set; }
     public int Punten { get; set; }
-    public int Tijd { get; set; }
+    public string Tijd { get; set; }
     #endregion
 
     #region Constructors
-    public Score(int quizId, string nicknaam, int punten, int tijd)
+    public Score(int quizId, string nicknaam, int punten, string tijd)
     {
       QuizId = quizId;
       Nicknaam = nicknaam;

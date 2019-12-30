@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">Quizzit</string>
     <string name="btn_postscore">Submit score</string>
-    <string name="btn_play">PLAY</string>
+    <string name="play_text">PLAY</string>
     <string name="score_text"></string>
     <string name="selecteren_text"></string>
+    <string name="nicknaam_text"></string>
+    <string name="loading_text">Quizzes worden geladen ... even geduld aub</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.example.quizzit.quiz.selecteren
+package com.example.quizzit.screens.quiz.selecteren
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

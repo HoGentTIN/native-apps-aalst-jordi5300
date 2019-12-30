@@ -1,7 +1,5 @@
-package com.example.quizzit.quiz.spelen
+package com.example.quizzit.screens.quiz.spelen
 
-import android.content.Context
-import android.net.ConnectivityManager
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,17 +9,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import com.example.quizzit.R
-import com.example.quizzit.database.QuizDatabase
 import com.example.quizzit.databinding.FragmentQuizspelenBinding
-import com.example.quizzit.domain.QuizRepository
-import com.example.quizzit.network.QuizApi
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class QuizSpelenFragment : Fragment(), View.OnClickListener {
 
-    private lateinit var quizSpelenViewModel: QuizSpelenViewModel
+    private val quizSpelenViewModel: QuizSpelenViewModel by viewModel()
     private lateinit var binding: FragmentQuizspelenBinding
     private lateinit var savedInstance: Bundle
 
@@ -34,22 +29,7 @@ class QuizSpelenFragment : Fragment(), View.OnClickListener {
             inflater, R.layout.fragment_quizspelen, container, false
         )
         savedInstance = Bundle()
-        val quizApiService = QuizApi.retrofitService
-        val quizDao = QuizDatabase.getInstance(requireContext()).quizDao
-        val questionDao = QuizDatabase.getInstance(requireContext()).questionDao
-        val connectivityManager =
-            requireContext().getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
 
-        val viewModelFactory =
-            QuizSpelenViewModelFactory(
-                QuizRepository(
-                    quizDao,
-                    questionDao,
-                    quizApiService,
-                    connectivityManager
-                )
-            )
-        quizSpelenViewModel = ViewModelProviders.of(this, viewModelFactory).get(QuizSpelenViewModel::class.java)
         binding.quizSpelenViewModel = quizSpelenViewModel
         binding.btnKeuze1.setOnClickListener(this)
         binding.btnKeuze2.setOnClickListener(this)

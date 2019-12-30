@@ -5,5 +5,5 @@ com.example.quizzit
 com.example.quizzit.database
 com.example.quizzit.domain
 com.example.quizzit.network
-com.example.quizzit.quiz
-com.example.quizzit.score
+com.example.quizzit.screens.quiz
+com.example.quizzit.screens.score
