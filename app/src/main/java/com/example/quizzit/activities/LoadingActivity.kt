@@ -8,7 +8,7 @@ import com.example.quizzit.R
 import com.example.quizzit.databinding.ActivityLoadingBinding
 import org.koin.android.viewmodel.ext.android.viewModel
 
-class LoadingActivity: AppCompatActivity() {
+class LoadingActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoadingBinding
     private val loadingViewModel: LoadingViewModel by viewModel()

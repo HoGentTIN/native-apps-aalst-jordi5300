@@ -14,7 +14,7 @@
         style="@style/QuizPlayButton"
         android:layout_width="0dp"
         android:layout_height="75dp"
-        android:text="@string/play_text"
+        android:text="@string/play_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/img_logo"
         app:layout_constraintStart_toStartOf="@+id/img_logo" />

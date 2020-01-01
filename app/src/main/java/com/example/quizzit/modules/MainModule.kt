@@ -89,4 +89,3 @@ fun provideQuestionDao(database: QuizDatabase): QuestionDao {
 fun provideScoreDao(database: QuizDatabase): ScoreDao {
     return database.scoreDao
 }
-

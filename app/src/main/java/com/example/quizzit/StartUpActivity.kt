@@ -29,8 +29,7 @@ class StartupActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == Activity.RESULT_OK) {
             startApp()
-        }
-        else {
+        } else {
             NoInternetFragment
                 .newInstance()
                 .show(supportFragmentManager, "dialog")

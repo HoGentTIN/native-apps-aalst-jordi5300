@@ -7,10 +7,6 @@ import androidx.room.RoomDatabase
 import com.example.quizzit.domain.Question
 import com.example.quizzit.domain.Quiz
 import com.example.quizzit.domain.Score
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 @Database(
     entities = [Quiz::class, Question::class, Score::class],

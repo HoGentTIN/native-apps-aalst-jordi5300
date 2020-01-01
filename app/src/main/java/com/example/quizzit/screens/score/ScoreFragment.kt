@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.quizzit.R
 import com.example.quizzit.R.layout.fragment_score
 import com.example.quizzit.databinding.FragmentScoreBinding
@@ -39,7 +39,7 @@ class ScoreFragment : Fragment() {
             }
         })
         binding.recyclerScoreResScores?.adapter = scoreAdapter
-        val manager = GridLayoutManager(activity, 1)
+        val manager = LinearLayoutManager(context)
         binding.recyclerScoreResScores?.layoutManager = manager
         binding.btnSubmitscore.setOnClickListener { view ->
             val nicknaam = binding.txtNicknaam.text
@@ -51,7 +51,7 @@ class ScoreFragment : Fragment() {
                 )
                 snackbar.show()
             } else {
-                if(scoreViewModel.connectedToInternet(provideConnectivityManager(requireContext()))) {
+                if (scoreViewModel.connectedToInternet(provideConnectivityManager(requireContext()))) {
                     scoreViewModel.postScore(quizId, nicknaam.toString(), score, tijd)
                     binding.btnSubmitscore?.isEnabled = false
                     binding.btnSubmitscore?.setTextColor(R.color.blackQuizzit.toInt())
@@ -62,8 +62,7 @@ class ScoreFragment : Fragment() {
                         Snackbar.LENGTH_LONG
                     )
                     snackbar.show()
-                }
-                else{
+                } else {
                     val snackbar2 = Snackbar.make(
                         view,
                         "Er is internet nodig om de score online te zetten!",

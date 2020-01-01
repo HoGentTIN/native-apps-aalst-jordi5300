@@ -21,15 +21,16 @@ class LoadingViewModel(application: Application, private val quizRepository: Qui
         viewModelScope.launch {
             try {
                 quizzes = quizRepository.getAllQuizzes()
+                if (quizzes.get(0).naam.isEmpty()) {
+                    _loadingResult.value = Activity.RESULT_CANCELED
+                }
                 quizzes.forEach {
                     quizRepository.getAllQuestions(it)
                 }
                 _loadingResult.value = Activity.RESULT_OK
-            }catch (e: Exception){
+            } catch (e: Exception) {
                 _loadingResult.value = Activity.RESULT_CANCELED
             }
             }
         }
 }
-
-

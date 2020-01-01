@@ -24,7 +24,7 @@ class QuizSelecterenFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_quizs_selecteren, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_quizs_selecteren, container, false)
         (activity as AppCompatActivity).supportActionBar?.title = "Quiz selecteren"
         binding.setLifecycleOwner(this)
 

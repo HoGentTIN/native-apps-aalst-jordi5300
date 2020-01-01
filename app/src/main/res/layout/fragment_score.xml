@@ -47,7 +47,7 @@
         android:layout_height="46dp"
         android:layout_marginTop="5dp"
         android:backgroundTint="@color/blackQuizzit"
-        android:text="@string/btn_postscore"
+        android:text="@string/postscore_button"
         android:textColor="@color/yellowQuizzit"
         app:layout_constraintBottom_toBottomOf="@+id/txt_nicknaam"
         app:layout_constraintEnd_toEndOf="parent"

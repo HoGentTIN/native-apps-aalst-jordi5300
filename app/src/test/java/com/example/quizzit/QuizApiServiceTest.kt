@@ -33,7 +33,8 @@ class QuizApiServiceTest {
     private val quiz2: Quiz = mockk()
     private val score1: Score = mockk()
     private val score2: Score = mockk()
-    private val questions: List<Question> = mockk()
+    private val question1: Question = mockk()
+    private val question2: Question = mockk()
     private val quizId: Int = 0
 
     private val quizApiService: QuizApiService = mockk()
@@ -43,11 +44,11 @@ class QuizApiServiceTest {
     @Before
     fun setUp() {
         coEvery { quizDao.getQuizzes() } returns listOf(quiz1, quiz2)
-        coEvery { questionDao.getQuestionsFromQuiz(quizId) } returns questions
+        coEvery { questionDao.getQuestionsFromQuiz(quizId) } returns arrayListOf(question1, question2)
         coEvery { scoreDao.getScores(quizId) } returns arrayListOf(score1, score2)
 
         coEvery { quizApiService.getQuizzes() } returns arrayListOf(quiz1, quiz2)
-        coEvery { quizApiService.getQuestions(quizId) } returns questions
+        coEvery { quizApiService.getQuestions(quizId) } returns arrayListOf(question1, question2)
         coEvery { quizApiService.getScores(quizId) } returns arrayListOf(score1, score2)
         coEvery { quizDao.insert(any()) } returns Unit
         coEvery { questionDao.insert(any()) } returns Unit
@@ -63,7 +64,7 @@ class QuizApiServiceTest {
     }
 
     @Test
-    fun quizRepository_GetQuizzesOnline_ReturnsFromApi() {
+    fun quizRepository_getQuizzesOnline_returnsFromApi() {
         // Arrange
         every { networkInfo.isConnected } returns true
         // Act
@@ -76,19 +77,48 @@ class QuizApiServiceTest {
     }
 
     @Test
-    fun quizRepository_GetQuizzesOffline_ReturnsFromDatabase() {
+    fun quizRepository_getQuizzesOffline_returnsFromDatabase() {
         // Arrange
         every { networkInfo.isConnected } returns false
         // Act
         runBlockingTest {
             val quizzes = quizRepository.getAllQuizzes()
             // Assert
+            coVerify { quizDao.getQuizzes() }
             assertEquals(2, quizzes.size)
         }
     }
 
     @Test
-    fun scoreRepository_GetScoresOnline_ReturnsFromApi() {
+    fun quizRepository_getQuestionsOnline_returnsFromApi() {
+        // Arrange
+        every { networkInfo.isConnected } returns true
+        every { quiz1.id } returns quizId
+        // Act
+        runBlockingTest {
+            val questions = quizRepository.getAllQuestions(quiz1)
+            // Assert
+            coVerify { quizApiService.getQuestions(quiz1.id) }
+            assertEquals(2, questions.size)
+        }
+    }
+
+    @Test
+    fun quizRepository_getQuestionsOffline_returnsFromDatabase() {
+        // Arrange
+        every { networkInfo.isConnected } returns false
+        every { quiz1.id } returns quizId
+        // Act
+        runBlockingTest {
+            val quesions = quizRepository.getAllQuestions(quiz1)
+            // Assert
+            coVerify { questionDao.getQuestionsFromQuiz(quizId) }
+            assertEquals(2, quesions.size)
+        }
+    }
+
+    @Test
+    fun scoreRepository_getScoresOnline_returnsFromApi() {
         // Arrange
         every { networkInfo.isConnected } returns true
         // Act
@@ -101,13 +131,14 @@ class QuizApiServiceTest {
     }
 
     @Test
-    fun scoreRepository_GetScoresOffline_ReturnsFromDatabase() {
+    fun scoreRepository_getScoresOffline_returnsFromDatabase() {
         // Arrange
         every { networkInfo.isConnected } returns false
         // Act
         runBlockingTest {
             val scorez = scoreRepository.getTopScores(quizId)
             // Assert
+            coVerify { scoreDao.getScores(quizId) }
             assertEquals(2, scorez.size)
         }
     }
