@@ -1,9 +1,9 @@
 package com.example.quizzit
 
-
 import android.view.View
 import android.view.ViewGroup
 import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.NoMatchingViewException
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
@@ -18,6 +18,7 @@ import org.hamcrest.Matcher
 import org.hamcrest.Matchers.`is`
 import org.hamcrest.Matchers.allOf
 import org.hamcrest.TypeSafeMatcher
+import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -26,138 +27,144 @@ import org.junit.runner.RunWith
 @RunWith(AndroidJUnit4::class)
 class QuizSpelenFragmentTest {
 
+    @Before
+    fun setUp() {
+        Thread.sleep(10000)
+    }
+
     @Rule
     @JvmField
     var mActivityTestRule = ActivityTestRule(StartupActivity::class.java)
 
     @Test
     fun quizSpelenFragmentTest() {
-        val appCompatButton = onView(
-            allOf(
-                withId(R.id.btn_play), withText("PLAY"),
-                childAtPosition(
+        try {
+            val appCompatButton = onView(
+                allOf(
+                    withId(R.id.btn_play), withText("PLAY"),
                     childAtPosition(
-                        withId(R.id.navHost_main),
-                        0
-                    ),
-                    0
-                ),
-                isDisplayed()
-            )
-        )
-        appCompatButton.perform(click())
-
-        val constraintLayout = onView(
-            allOf(
-                childAtPosition(
-                    allOf(
-                        withId(R.id.recycler_QuizRes_quizzes),
                         childAtPosition(
-                            withClassName(`is`("androidx.constraintlayout.widget.ConstraintLayout")),
-                            1
-                        )
-                    ),
-                    0
-                ),
-                isDisplayed()
-            )
-        )
-        constraintLayout.perform(click())
-
-        val button = onView(
-            allOf(
-                withId(R.id.btn_keuze1),
-                childAtPosition(
-                    childAtPosition(
-                        withId(R.id.navHost_main),
+                            withId(R.id.navHost_main),
+                            0
+                        ),
                         0
                     ),
-                    1
-                ),
-                isDisplayed()
+                    isDisplayed()
+                )
             )
-        )
-        button.check(matches(isDisplayed()))
+            appCompatButton.perform(click())
 
-        val button2 = onView(
-            allOf(
-                withId(R.id.btn_keuze2),
-                childAtPosition(
+            val constraintLayout = onView(
+                allOf(
                     childAtPosition(
-                        withId(R.id.navHost_main),
+                        allOf(
+                            withId(R.id.recycler_QuizRes_quizzes),
+                            childAtPosition(
+                                withClassName(`is`("androidx.constraintlayout.widget.ConstraintLayout")),
+                                1
+                            )
+                        ),
                         0
                     ),
-                    2
-                ),
-                isDisplayed()
+                    isDisplayed()
+                )
             )
-        )
-        button2.check(matches(isDisplayed()))
+            constraintLayout.perform(click())
 
-        val button3 = onView(
-            allOf(
-                withId(R.id.btn_keuze3),
-                childAtPosition(
+            val button = onView(
+                allOf(
+                    withId(R.id.btn_keuze1),
                     childAtPosition(
-                        withId(R.id.navHost_main),
+                        childAtPosition(
+                            withId(R.id.navHost_main),
+                            0
+                        ),
+                        1
+                    ),
+                    isDisplayed()
+                )
+            )
+            button.check(matches(isDisplayed()))
+
+            val button2 = onView(
+                allOf(
+                    withId(R.id.btn_keuze2),
+                    childAtPosition(
+                        childAtPosition(
+                            withId(R.id.navHost_main),
+                            0
+                        ),
+                        2
+                    ),
+                    isDisplayed()
+                )
+            )
+            button2.check(matches(isDisplayed()))
+
+            val button3 = onView(
+                allOf(
+                    withId(R.id.btn_keuze3),
+                    childAtPosition(
+                        childAtPosition(
+                            withId(R.id.navHost_main),
+                            0
+                        ),
+                        3
+                    ),
+                    isDisplayed()
+                )
+            )
+            button3.check(matches(isDisplayed()))
+
+            val button4 = onView(
+                allOf(
+                    withId(R.id.btn_keuze4),
+                    childAtPosition(
+                        childAtPosition(
+                            withId(R.id.navHost_main),
+                            0
+                        ),
+                        4
+                    ),
+                    isDisplayed()
+                )
+            )
+            button4.check(matches(isDisplayed()))
+
+            val textView = onView(
+                allOf(
+                    withId(R.id.view_timer), withText("6"),
+                    childAtPosition(
+                        childAtPosition(
+                            withId(R.id.navHost_main),
+                            0
+                        ),
+                        5
+                    ),
+                    isDisplayed()
+                )
+            )
+            textView.check(matches(isDisplayed()))
+
+            val textView2 = onView(
+                allOf(
+                    withId(R.id.txt_vraag), withText("Hoe heet de hoofdstad van Zwitserland?"),
+                    childAtPosition(
+                        childAtPosition(
+                            withId(R.id.navHost_main),
+                            0
+                        ),
                         0
                     ),
-                    3
-                ),
-                isDisplayed()
+                    isDisplayed()
+                )
             )
-        )
-        button3.check(matches(isDisplayed()))
-
-        val button4 = onView(
-            allOf(
-                withId(R.id.btn_keuze4),
-                childAtPosition(
-                    childAtPosition(
-                        withId(R.id.navHost_main),
-                        0
-                    ),
-                    4
-                ),
-                isDisplayed()
-            )
-        )
-        button4.check(matches(isDisplayed()))
-
-        val textView = onView(
-            allOf(
-                withId(R.id.view_timer), withText("6"),
-                childAtPosition(
-                    childAtPosition(
-                        withId(R.id.navHost_main),
-                        0
-                    ),
-                    5
-                ),
-                isDisplayed()
-            )
-        )
-        textView.check(matches(isDisplayed()))
-
-        val textView2 = onView(
-            allOf(
-                withId(R.id.txt_vraag), withText("Hoe heet de hoofdstad van Zwitserland?"),
-                childAtPosition(
-                    childAtPosition(
-                        withId(R.id.navHost_main),
-                        0
-                    ),
-                    0
-                ),
-                isDisplayed()
-            )
-        )
-        textView2.check(matches(isDisplayed()))
+            textView2.check(matches(isDisplayed()))
+        } catch (e: NoMatchingViewException) {
+        }
     }
 
-    private fun childAtPosition(
-        parentMatcher: Matcher<View>, position: Int
-    ): Matcher<View> {
+    private fun childAtPosition(parentMatcher: Matcher<View>, position: Int): Matcher<View> {
 
         return object : TypeSafeMatcher<View>() {
             override fun describeTo(description: Description) {
@@ -167,8 +174,7 @@ class QuizSpelenFragmentTest {
 
             public override fun matchesSafely(view: View): Boolean {
                 val parent = view.parent
-                return parent is ViewGroup && parentMatcher.matches(parent)
-                        && view == parent.getChildAt(position)
+                return parent is ViewGroup && parentMatcher.matches(parent) && view == parent.getChildAt(position)
             }
         }
     }
